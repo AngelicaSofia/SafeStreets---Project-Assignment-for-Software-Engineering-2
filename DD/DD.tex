@@ -1,0 +1,54 @@
+\documentclass{report}
+
+% Package for pdf metadata
+\usepackage{hyperref}
+\hypersetup{
+  pdftitle={DD},
+  pdfauthor={Carlo Dell'Acqua, Adriana Ferrari, Angelica Valeriani},                     % author
+  pdfsubject={SafeStreet},
+  pdfkeywords={DD, SafeStreet, Software Engineering},
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=black,
+  filecolor=black,
+  urlcolor=purple,
+  linktoc=page
+}
+
+\begin{document}
+  % Cover
+  \title{DD}
+  \author{Carlo Dell'Acqua, Adriana Ferrari, Angelica Valeriani}
+  \maketitle
+
+  % Table of contents
+  \tableofcontents
+
+  % 1 - Introduction
+  \chapter{Introduction}
+  \input{Chapters/01-Introduction.tex}
+
+  % 2 - Architectural design
+  \chapter{Architectural design}
+  \input{Chapters/02-ArchitecturalDesign.tex}
+
+  % 3 - User interface design
+  \chapter{User interface design}
+  \input{Chapters/03-UserInterfaceDesign.tex}
+  
+  % 4 - Requirements traceability
+  \chapter{Requirements traceability}
+  \input{Chapters/04-RequirementsTraceability.tex}
+
+  % 5 - Implementation, integration and test plan
+  \chapter{Implementation, integration and test plan}
+  \input{Chapters/05-ImplementationIntegrationAndTestPlan.tex}
+  
+  % 6 - Effort spent
+  \chapter{Effort spent}
+  \input{Chapters/06-EffortSpent.tex}
+
+  % 7 - References
+  \begin{thebibliography}{0}
+  \end{thebibliography}
+\end{document}
