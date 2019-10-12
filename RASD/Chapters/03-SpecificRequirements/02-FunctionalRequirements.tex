@@ -9,6 +9,13 @@
     \item The user can help localising the violation by inserting the name of the street where it occurred
 \end{itemize}
 
+\subsection{Validation of reported violations}
+\begin{itemize}
+    \item Whenever a violation is reported by a user, it is sent to a random group of $k$ SafeStreets users
+    \item Users who receive the notification about this approval process are then asked to approve or reject the report
+    \item The report is validated if and only if the algebraic sum of approvals (+1) and rejection (-1) is at least $v$
+\end{itemize}
+
 \subsection{Allow a user to see the areas where a violation is more likely to happen}
 \begin{itemize}
     \item SafeStreets can aggregate data inputted by users to show relevant statistics about the frequency of street violations
@@ -33,4 +40,17 @@
     \item Authorities must first register as citizens
     \item A standard user profile can be upgraded to authority profile if it is verified by the system
     \item To obtain privileged access, the user must provide a valid document that proves their authority status
+\end{itemize}
+
+\subsection{Unsafe Areas Identification}
+\begin{itemize}
+  \item SafeStreets can cross information from different sources to identify potentially unsafe areas
+  \item SafeStreets may be integrated with a public service, offered by the municipality, that provides such information
+  \item Once identified, SafeStreets can suggest possible interventions to prevent accidents
+\end{itemize}
+
+\subsection{Traffic Ticket Generation}
+\begin{itemize}
+  \item SafeStreets can generate tickets for traffic violations reported from registered users
+  \item The information is kept safe and intact through the chain of custody, from the end user to the local police officer issuing the tickets
 \end{itemize}
