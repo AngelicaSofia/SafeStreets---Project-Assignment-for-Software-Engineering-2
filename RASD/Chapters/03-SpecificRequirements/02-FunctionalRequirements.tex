@@ -1,0 +1,36 @@
+\section{Functional Requirements}
+
+\subsection{Allow a user to send pictures about street and parking violations}
+\begin{itemize}
+    \item A user can submit a picture to the system whenever they see a street violation
+    \item SafeStreets analyses the image to read the licence plait of the vehicle
+    \item The user can manually attach the licence plait to the image, to help the system with its validation
+    \item The user must provide the type of violation, either selecting it from a list or manually typing it if it is not already in the system
+    \item The user can help localising the violation by inserting the name of the street where it occurred
+\end{itemize}
+
+\subsection{Allow a user to see the areas where a violation is more likely to happen}
+\begin{itemize}
+    \item SafeStreets can aggregate data inputted by users to show relevant statistics about the frequency of street violations
+    \item Users can see how many violations usually happen in their neighbourhood, in their current location or in an area of their choice
+    \item A user has access to the type and amount of violations that happened
+\end{itemize}
+
+\subsection{Allow authorities to see data about violations and who committed them}
+\begin{itemize}
+    \item Authorities can access all data about violations that a standard user can access
+    \item Authorities also have access to more specific data about who committed a violation, like the licence plait of the car or how many infractions have been associated to a specific car
+\end{itemize}
+
+\subsection{Allow any citizen to become a user by providing a document}
+\begin{itemize}
+    \item A citizen can register to SafeStreets by providing their ID number
+    \item The system must allow a user to register with an email and a password, that will be asked every time they log in
+\end{itemize}
+
+\subsection{Allow authorities to register with a special user profile}
+\begin{itemize}
+    \item Authorities must first register as citizens
+    \item A standard user profile can be upgraded to authority profile if it is verified by the system
+    \item To obtain privileged access, the user must provide a valid document that proves their authority status
+\end{itemize}
