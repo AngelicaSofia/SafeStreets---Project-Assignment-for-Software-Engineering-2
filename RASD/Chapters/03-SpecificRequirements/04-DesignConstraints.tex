@@ -1,0 +1,18 @@
+\section{Design Constraints}
+
+\subsection{Standards compliance}
+  \begin{itemize}
+    \item To guarantee the compatibility with the potential municipality accident information service, our backend software should communicate and be able to read data in a portable format like JSON or XML
+    \item To transfer this data, the software should expose an HTTP REST API
+  \end{itemize}
+
+\subsection{Hardware limitations}
+  \begin{itemize}
+    \item The frontend application should be as lightweight as possible to support the diversity of mobile device hardware
+    \item Devices with a camera resolution of less than 2Mp should be marked as incompatible with SafeStreets due to the poor quality of the pictures that are taken with them
+  \end{itemize}
+
+\subsection{Other constraints}
+  \begin{itemize}
+    \item The language used to develop the backend application will be chosen from the ones that are most supported by the main cloud infrastructure providers, in order to have a wider choice of hosting plans
+  \end{itemize}

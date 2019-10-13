@@ -1,19 +1,19 @@
 \section{Software System Attributes}
 
 \subsection{Reliability}
-\subsection{Index MTBF}
+\subsubsection{Index MTBF}
 \begin{itemize}
     \item Index MTBF must consider as failures those out of design conditions which place the system out of service, for example by an overload of user’s requests
     \item MTBF is of 600'000 hours
 \end{itemize}
 
-\subsection{Index MTTR}
+\subsubsection{Index MTTR}
 \begin{itemize}
     \item Index MTTR must consider time of testing and eventual solution of bugs
     \item MTTR must be of two hours
 \end{itemize}
 
-\subsection{The system must verify position in an accurate way}
+\subsubsection{The system must verify position in an accurate way}
 \begin{itemize}
     \item The system expects to receive two pictures			
     \item The received pictures must be of at least 2 Mp
@@ -24,30 +24,29 @@
     \item The system must verify the position provided by the user that sent a picture notifying a violation by comparison to the data stored and the GPS service
     \item The identification of coordinates must not be less precise than 3 metres in case of parking violation
 \end{itemize}
-\endsubsection
 
-\subsection{Availability}
+\subsubsection{Availability}
 \begin{itemize}
     \item The system must guarantee a 24/7 service
-    \item The system must be available 99.99%
+    \item The system must be available 99.99\%
     \item The system must be available when performing the standard routine tests for maintenance
     \item The system can bear slowdowns of the service in case of extraordinary maintenance due to overloading of requests
 \end{itemize}
 
 \subsection{Security}
-\subsection{Secrecy of data received and of users information}
+\subsubsection{Secrecy of data received and of users information}
 \begin{itemize}
     \item The system should never allow both non-registered users and registered users to see the identity of the person that notifies the violation
     \item User credentials, ID and password, have to be encrypted and safely stored
-    \item Every user has to registrate with username and password, but the system provides for each user a multi-factor authentication
+    \item Every user has to register with username and password, but the system provides for each user a multi-factor authentication
 \end{itemize}
 
-\subsection{Integrity of data}
+\subsubsection{Integrity of data}
 \begin{itemize}
     \item The information sent by users (picture, date, time and position of the violation) has to be encrypted in order to keep the integrity of message, and to avoid manipulation of data
 \end{itemize}
 
-\subsection{Measures of security according to danger level}
+\subsubsection{Measures of security according to danger level}
 \begin{itemize}
   \item Public statistics to identify the most dangerous areas are provided for SafeStreets
   \item SafeStreets makes a ranking of dangerousness (minimum, medium, high)
@@ -55,18 +54,17 @@
   \item The authorities can decide to improve security by adding cameras in the areas at medium risk 
   \item The authorities can decide to improve security by both adding cameras and doubling patrol shifts  in the areas at large risk
 \end{itemize}
-\endsubsection
 
 \subsection{Maintainability}
-\subsection{Testing overview}
+\subsubsection{Testing overview}
 \begin{itemize}
   \item The system is checked in its correct functioning by software testing
-  \item Units testes are performed every month in standard conditions
+  \item Unit tests are performed every month in standard conditions
   \item Integration tests are performed every two weeks in standard conditions
   \item System tests are performed every week in standard conditions, in order to guarantee performances and by regression to solve eventual bugs due to software development
 \end{itemize}
 
-\subsection{The system is controlled and monitored}
+\subsubsection{The system is controlled and monitored}
 \begin{itemize}
   \item The system is equipped with condition-monitoring algorithms 
   \item The condition-monitoring algorithms identify the functions that cause alarm
@@ -75,13 +73,12 @@
   \item A system test is performed after the integration and unit test of the potentially at risk function
 \end{itemize}
 
-\subsection{The code must be clean and easy to understand}
+\subsubsection{The code must be clean and easy to understand}
 \begin{itemize}
   \item Code must have a clear structure
   \item It is advisable to following the design patterns to provide a standard terminology and to make the software more adaptable to future extensions and improvements
   \item Complete and detailed documentation from a unit to the superior levels is mandatory in order to keep the maintainability on the highest level on the whole system
-\begin{itemize}
-\endsubsection
+\end{itemize}
 
 \subsection{Portability}
 \begin{itemize}
@@ -92,4 +89,3 @@
   \item Binary translation must be supported by the system as adaptability is significant and practical for a program in “binary” (executable) form
   \item The architecture must be flexible
 \end{itemize}
-\endsection
