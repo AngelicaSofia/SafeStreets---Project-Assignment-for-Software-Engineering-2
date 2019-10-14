@@ -1,0 +1,14 @@
+\section{Performance Requirements}
+
+\subsection{Reliability}
+\subsubsection{Index MTBF}
+\begin{itemize}
+    \item 90\% of all response time should be less than 4.5 second
+    \item The response times will be measured using HP LoadRunner (or similar tool) located behind the firewall and in front of the web servers
+    \item Backend response times will be measured using the application server log files
+    \item The system is provided to serve a huge number of users in parallel
+    \item At the beginning the system is supposed to be correctly and quickly responding to 100'000 users
+    \item As number of users is expected to be grown linearly, the system is provided of a flexible structure, to adapt to further number of requests
+    \item Daily tests to check performance will be executed to guarantee the service
+    \item The performance tests should not exceed 50\% CPU utilization during the execution time
+\end{itemize}
