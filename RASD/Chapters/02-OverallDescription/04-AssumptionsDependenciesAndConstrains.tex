@@ -2,24 +2,24 @@
 
 \subsection{Domain assumption}
   \begin{itemize}
-    \item Credentials that a visitor has to provide to become a registered user are name, surname, address, telephone number, email, ID number, username and password
-    \item Username and email of each user are unique
-    \item After registration the user is sent a recap of its data and a confirm of registration
-    \item In order to access the system, a user must provide at first username and password
-    \item Every visitor can have just one account as registered user
-    \item Two-factors authentication is supported, so the user will receive a code by SMS on the registered number to confirm is identity and access the system
-    \item In alternative the second code can be sent on email
-    \item Every time a user accesses the system, a notification via SMS and email is sent to the telephone number and the e-mail provided by the logged user
-    \item The user will notify one of the supported violations by the system
-    \item Pictures that are not suitable for the system to identify are rejected, this is particularly valid for the second picture, in case the violation includes a car and the license plate 
-    \item An unsafe area, represented as a circle, is described by the coordinate and the radius as the maximum acceptable distance from the centre of the area
+    \item Personal information that a visitor has to provide to become a registered user are name, surname, email, ID number and password
+    \item Emails are unique and a user can only be associated to one email address
+    \item After registration the system sends an email to the user containing a recap of the information they provided and an activation link
+    \item Once the activation link is opened in a browser the email address of the user is verified and the user is automatically logged in
+    \item Two-factors authentication can be enabled by the user by providing a phone number (SMS authentication) or by scanning a QR Code with an authenticator app (Token authentication)
+    \item Once logged in a user can notify traffic violations
+    \item Pictures with a resolution of less than 2MP are automatically rejected
+    \item --------------------------------------------------- ALT1
+    \item An unsafe area, represented as a circle, is described by the coordinate and
+    the radius as the maximum acceptable distance from the center of the area
     \item Different unsafe areas do not overlap between them
     \item Every area that is not unsafe is considered safe
     \item Unsafe areas are determined by statistics made by the system, according to the areas where the maximum number of violations occur 
+    \item --------------------------------------------------- ALT2
+    \item Users can view a custom map that is updated periodically and shows unsafe streets by highlighting them with a gradient of colors from yellow to red which indicates the level of danger
   \end{itemize}
 
 \subsection{Dependencies}
   \begin{itemize}
     \item The authorities will be in charge of every effective measure of security taken to make streets safer
-    \item The system has complete access to the information on location, it has access to GPS data
   \end{itemize}

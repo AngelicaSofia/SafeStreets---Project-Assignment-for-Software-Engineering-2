@@ -2,20 +2,21 @@
 
 \subsection{Performance features}
 \begin{itemize}
-    \item 90\% of all response time should be less than 4.5 second
-    \item The response times will be measured using HP LoadRunner (or similar tool) located behind the firewall and in front of the web servers
-    \item Backend response times will be measured using the application server log files
-    \item The system is provided to serve a huge number of users in parallel
+    \item 90\% of the API calls should be completed within 4.5 seconds
+    \item The response times during the testing phase will be measured using HP LoadRunner (or similar tools) located behind the firewall and in front of the web servers
+    \item Real response times will be measured using the application server log files
+    \item The system will be deployed to a machine able to serve a huge number of users in parallel
 \end{itemize}
 
 \subsection{Evolution of the system}
 \begin{itemize}
-    \item At the beginning the system is supposed to be correctly and quickly responding to 100'000 users
-    \item As number of users is expected to be growning linearly, the system is provided of a flexible structure, to adapt to further number of requests
+    \item At the beginning the system should be able to handle up to 10'000 users
+    \item As the number of users will grow in unpredictable ways, at first the system will be deployed on cloud infrastructure that enables automatic up and down scaling (e.g. Azure Autoscale or AWS Elastic)
+    \item Due to the cost of such infrastructures, as the number of users will become more stable the system will be migrated to a fixed resource machine
 \end{itemize}
 
 \subsection{Performance testing}
 \begin{itemize}
-    \item Daily tests to check performance will be executed to guarantee the service
-    \item The performance tests should not exceed 50\% CPU utilization during the execution time
+    \item Automatic monthly tests to check performance will be executed during system idle time which is determined statistically
+    \item The performance tests should not exceed an execution time of 15 minutes
 \end{itemize}

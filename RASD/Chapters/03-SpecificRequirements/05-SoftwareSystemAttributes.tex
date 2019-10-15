@@ -4,46 +4,45 @@
 \subsubsection{Index MTBF}
 \begin{itemize}
     \item Index MTBF must consider as failures those out of design conditions which place the system out of service, for example by an overload of user’s requests
-    \item MTBF is of 6'000'000 hours
+    \item MTBF is of 5,000 hours
 \end{itemize}
 
 \subsubsection{Index MTTR}
 \begin{itemize}
-    \item Index MTTR must consider time of testing and eventual solution of bugs
-    \item MTTR must be of two hours
+    \item Index MTTR must consider time of testing and solution of bugs
+    \item MTTR must be less than two hours
 \end{itemize}
 
-\subsubsection{The system must verify position in an accurate way}
+\subsubsection{The position should be verifiable}
 \begin{itemize}
-    \item The system expects to receive two pictures			
-    \item The received pictures must be of at least 2 Mp
-    \item The first picture must represent a general overview of the violation, to identify street and area
-    \item The second picture must allow the system to identify correctly the license plate, if the violation includes a car
-    \item The second picture is simply an additive detail, if the violation doesn't include a car
-    \item In the second picture, if the violation includes a car, the license plate must occupy at least a quarter of the total picture
-    \item The system must verify the position provided by the user that sent a picture notifying a violation by comparison to the data stored and the GPS service
-    \item The identification of coordinates must not be less precise than 3 metres in case of parking violation
+    \item The system expects to receive one or two pictures
+    \item The received pictures must be of at least 2MP
+    \item The first picture must represent a general overview of the violation, to identify the street
+    \item The second picture must allow the system to identify correctly the license plate, if the violation includes a vehicle
 \end{itemize}
 
 \subsection{Availability}
 \begin{itemize}
     \item The system must guarantee a 24/7 service
-    \item The system must be available 99.99\%
+    \item The system must be available 99.9\%
     \item The system must be available when performing the standard routine tests for maintenance
-    \item The system can bear slowdowns of the service in case of extraordinary maintenance due to overloading of requests
+    \item The system can bear slowdowns of the service in case of extraordinary overload of requests
+    \item The system can become unavailable for some seconds due to extraordinary maintenance or major updates
 \end{itemize}
 
 \subsection{Security}
-\subsubsection{Secrecy of data received and of users information}
+\subsubsection{Secrecy of data received and of users' information}
 \begin{itemize}
     \item The system should never allow both non-registered users and registered users to see the identity of the person that notifies the violation
-    \item User credentials, ID and password, have to be encrypted and safely stored
-    \item Every user has to register with username and password, but the system provides for each user a multi-factor authentication
+    \item User personal data must be encrypted and safely stored
+    \item Users' passwords must be salted and hashed before being stored on any persistent medium
+    \item Every user can log in using their email and password, but they can optionally enable Two-Factor authentication to improve security
+    \item Violation reports must be encrypted before being sent to the server to preserve the secrecy and integrity in the chain of custody
 \end{itemize}
 
 \subsubsection{Integrity of data}
 \begin{itemize}
-    \item The information sent by users (picture, date, time and position of the violation) has to be encrypted in order to keep the integrity of message, and to avoid manipulation of data
+    \item The information sent by users (picture, date, time and position of the violation) has to be encrypted in order to keep the integrity and to avoid manipulation of the data
 \end{itemize}
 
 \subsubsection{Measures of security according to danger level}
@@ -59,9 +58,7 @@
 \subsubsection{Testing overview}
 \begin{itemize}
   \item The system is checked in its correct functioning by software testing
-  \item Unit tests are performed every month in standard conditions
-  \item Integration tests are performed every two weeks in standard conditions
-  \item System tests are performed every week in standard conditions, in order to guarantee performances and by regression to solve eventual bugs due to software development
+  \item Unit tests, Integration tests and System tests are performed before and after every update
 \end{itemize}
 
 \subsubsection{The system is controlled and monitored}
@@ -70,24 +67,23 @@
   \item The condition-monitoring algorithms identify the functions that cause alarm
   \item A unit test is made as soon as a function is identified as potentially at risk
   \item An integration test is performed after the unit test of the potentially at risk function
-  \item A system test is performed after the integration and unit test of the potentially at risk function
+  \item A system test is performed after the integration and unit test of the potentially-at-risk function
 \end{itemize}
 
 \subsubsection{The code must be clean and easy to understand}
 \begin{itemize}
-  \item Code must have a clear structure
-  \item It is advisable to following the design patterns to provide a standard terminology and to make the software more adaptable to future extensions and improvements
-  \item Complete and detailed documentation from a unit to the superior levels is mandatory in order to keep the maintainability on the highest level on the whole system
+  \item Code must follow common best practices
+  \item It is advisable to follow the design patterns to provide a standard terminology and to make the software more adaptable to future extensions and improvements
+  \item Complete and detailed documentation, even for low level functions, is mandatory in order to keep the maintainability on the highest level on the whole system
 \end{itemize}
 
 \subsection{Portability}
 \begin{itemize}
-  \item The software shall run on Windows, IOS, and Linux
+  \item The software shall run on Windows, macOS, Linux, Android and iOS through a modern web browser supporting at least ECMAScript 2015
   \item To guarantee the portability of the front end application the software shall be developed using a web framework such as React
   \item This approach for the front end application will enable code reuse among native mobile platforms (iOS and Android) and the Web Application
   \item The back end software shall be developed in a language that can be compiled to run on virtual runtime such as Java, JavaScript or C\# which can target the JVM, Node.js and dotnet core respectively
   \item The software can be developed using the standard API’s that span different types of operating systems
-  \item The software will be transferred with no modifications to support the environment on another destination machine
-  \item Binary translation must be supported by the system as adaptability is significant and practical for a program in “binary” (executable) form
+  \item The software will then be able to be transferred with no modifications on other destination machines
   \item The architecture must be flexible
 \end{itemize}
