@@ -1,0 +1,31 @@
+\section{External Interface Requirements}
+
+\subsection{User Interface}
+The following mockups represent a basic idea of how the Mobile Application
+and the Web Interface are supposed to look like.
+Users can access to complete SafeStreets functionalities through the smart-phone application, and they will notify violations through it.
+
+On the other side, SafeStreets provides a Web Interface for users. As well as on the mobile phone, 
+they can exploit all the functionalities provided by the application, such as the registration or the notification of a violation.
+
+\subsection{Hardware Interfaces}
+Since the application must run over the Internet, all the hardware shall re-
+quire to connect network will be an hardware interface for the system, both
+server and client side.
+\item Server-side: e.g. Modem, WAN - LAN, Ethernet Cross-Cable.
+\item Client-side: e.g. Wi-Fi 802.11ac, 3G/4G. 
+
+\subesection{Software Interface}
+SafeStreet provide an API, besides the Web Application Interface.
+In a more detailed way, it will provide an API that allows third parties to access
+the entire set of functionalities provided by the system. In this way 
+third party companies and applications can embed in their system the
+functionalities concerning with the individual access requests and sampling
+requests.
+
+\subesection{Communication Interface}
+SafeStreets must rely on the newer TLS version 1.3, released in 2018, to guarantee the best
+security possible. This version, in comparison to the previous one (TLS v. 1.2) speeds up encrypted connections;
+in fact the handshake phase is executed with only one round-trip, which cuts the encryption latency in half.
+The use of TLS version 1.3 is guaranteed at least during the HTTPS connections involving messages
+carrying credentials or other sensible data.
