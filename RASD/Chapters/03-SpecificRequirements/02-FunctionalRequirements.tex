@@ -18,6 +18,41 @@ He chooses the alternative he prefers, then he immediately receives the verifica
 He can confirm his registration by clicking on the verification code. The system then sends a recap to notify the positive outcome of registration. Mario is now a Registered
 User of SafeStreets; he can login to notify violations on the streets and is enabled to the use of all the functions for a basic user (not an authority) that the system provides.
 
+\subsubsection{Use case: Visitor registration on mobile phone}
+\begin{table}[h]
+    \center
+    \begin{tabular}{l|l}
+        \multicolumn{2}{c}{\textbf{Visitor Registration}} \\
+        \hline
+        \textbf{Name} & Registration to SafeStreets \\
+        \hline
+        \textbf{Actor} & Visitor \\
+        \hline
+        \textbf{Goals} & R1 \\
+        \hline
+        \textbf{Entry conditions} & The visitor must have downloaded the mobile phone application \\
+        \hline
+        \textbf{Event flow} & The Visitor must fill all mandatory fields in the registration form \\ 
+        & The Visitor must click on the "Create account" button \\ 
+        & The system validate the provided data \\
+        & The Visitor chooses how to confirm his registration (phone number/email) \\
+        & The system sends the code on the visitor's chosen mode \\ 
+        & The Visitor clicks on the confirmation code \\ 
+        & The system sends a recap of registration, as a positive outcome \\
+        & The system saves the Visitor's data \\
+        \hline
+        \textbf{Exit conditions} & The Visitor has become a registered used \\
+        \hline
+        \textbf{Exceptions}
+        & The Visitor is already registered \\
+        & The email is already registered \\
+        & The ID card is already registered \\
+        & Visitor's data don't match with ID card data \\
+        & Some mandatory fields are not filled \\
+        \hline
+    \end{tabular}
+\end{table}
+
 \subsection{Allow a user to send pictures about street and parking violations}
 \begin{itemize}
     \item A user can submit a picture to the system whenever they see a street violation
