@@ -1,6 +1,6 @@
 \section{Functional Requirements}
 
-\subsection{R1: Allow a visitor to register on the mobile phone app or the web app}
+\subsection{R1: Allow any citizen, as a visitor, to register on the mobile phone app or the web app and to become a user by providing a document}
 \begin{itemize}
     \item The system must allow the visitor to provide credentials and personal data
     \item The system must verify the correspondence between the ID number provided by the visitor and their personal information
@@ -8,20 +8,23 @@
     \item The system must send a recap of registration to email of the visitor
     \item The system must verify that there are no other registered users or authorities with the same e-mail or ID number
     \item The user must accept users data privacy conditions to successfully register to the system
+    \item A citizen can register to SafeStreets by providing their ID number
+    \item A citizen can register to SafeStreets by providing their ID number
+    \item The system must allow a user to register with an email and a password, that will be asked every time they log in
 \end{itemize}
+
 \subsubsection{Scenario 1}
 Mario Rossi saw the advertisement of SafeStreets and decided to download the mobile application in order to be allowed to notify violations and improve safety of streets in his city. After
 opening the new app, he is asked to fill a form with all his personal information, full name, email address, mobile number, ID card, and phone number. To proceed with his
-registration, after all having filled all the form, including the users data privacy conditions, Mario clicks on the "Create account" button. The system verify the correspondence between inserted personal data and the ID card information,
+registration, after having filled all the form, including the users data privacy conditions, Mario clicks on the "Create account" button. The system verify the correspondence between inserted personal data and the ID card information,
 and if the verification is positive, Mario is asked whether he prefers to confirm his registration by phone number or by email.
 He chooses the alternative he prefers, then he immediately receives the verification code on the account he chose.
 He can confirm his registration by clicking on the verification code. The system then sends a recap to notify the positive outcome of registration. Mario is now a Registered
 User of SafeStreets; he can login to notify violations on the streets and is enabled to the use of all the functions for a basic user (not an authority) that the system provides.
 
 \subsubsection{Use case: Visitor registration on mobile phone}
-\begin{table}[h]
-    \center
-    \begin{tabular}{l|l}
+\begin{center}
+    \begin{tabular}{|p{3cm}|p{7cm}|}
         \multicolumn{2}{c}{\textbf{Visitor Registration}} \\
         \hline
         \textbf{Name} & Registration to SafeStreets \\
@@ -30,31 +33,33 @@ User of SafeStreets; he can login to notify violations on the streets and is ena
         \hline
         \textbf{Goals} & R1 \\
         \hline
-        \textbf{Entry conditions} & The visitor must have downloaded the mobile phone application or \\
-        & The visitor must have acceded the web interface \\
+        \textbf{Entry conditions} & The visitor must have downloaded the mobile phone application or the visitor must have acceded the web interface \\
         \hline
-        \textbf{Event flow} & The Visitor must fill all mandatory fields in the registration form \\ 
-        & The Visitor must click on the "Create account" button \\ 
-        & The system validate the provided data \\
-        & The Visitor chooses how to confirm his registration (phone number/email) \\
-        & The system sends the code on the visitor's chosen mode \\ 
-        & The Visitor clicks on the confirmation code \\ 
-        & The system sends a recap of registration, as a positive outcome \\
-        & The system saves the Visitor's data \\
+        \textbf{Event flow} & 1. The Visitor must fill all mandatory fields in the registration form \\ 
+        & 2. The Visitor must click on the "Create account" button \\ 
+        & 3. The system validate the provided data \\
+        & 4. The Visitor chooses how to confirm his registration (phone number/email) \\
+        & 5. The system sends the code on the visitor's chosen mode, mobile phone or email address \\ 
+        & 6. The Visitor clicks on the confirmation code \\ 
+        & 7. The system sends a recap of registration, as a positive outcome \\
+        & 8. The system saves the Visitor's data \\
         \hline
         \textbf{Exit conditions} & The Visitor has become a registered used \\
         \hline
         \textbf{Exceptions}
-        & The Visitor is already registered \\
-        & The email is already registered \\
-        & The ID card is already registered \\
-        & Visitor's data don't match with ID card data \\
-        & Some mandatory fields are not filled \\
+        & \begin{itemize}
+            \item The Visitor is already registered
+            \item The email is already registered
+            \item The ID card is already registered 
+            \item Visitor's data don't match with ID card data
+            \item Some mandatory fields are not filled 
+        \end{itemize} \\
         \hline
     \end{tabular}
-\end{table}
+\end{center}
 
-\subsection{Allow a user to send pictures about street and parking violations}
+
+\subsection{R2: Allow a user to send pictures about street and parking violations}
 \begin{itemize}
     \item A user can submit a picture to the system whenever they see a street violation
     \item SafeStreets analyses the image to read the license plait of the vehicle
@@ -64,13 +69,49 @@ User of SafeStreets; he can login to notify violations on the streets and is ena
 \end{itemize}
 \subsubsection{Scenario 2}
 Mario Rossi is a user of SafeStreets, he has just finished working, and he wants to go back home, but he is prevented by a car, that is in double-row parking with his own. He waits for ten 
-minutes to see if the owner of the car is coming, but then decide to notify the violation. He makes two pictures representing the violation, then logs into the mobile application, 
-inserting his personal data, then he clicks on the button to notify a violation, he inserts time (5.55 p.m.), position (Via Botticelli, Viale Romagna, 2, 20133 Milano MI), a brief description 
+minutes to see if the owner of the car is coming, but then decide to notify the violation. In order to notify the violation he must have logged into the mobile application, inserting his data, so he does; then he makes two pictures representing the violation, 
+then he clicks on the button to notify a violation, he inserts time (5.55 p.m.), position (Via Botticelli, Viale Romagna, 2, 20133 Milano MI), a brief description 
 of the violation, and the two pictures. He is asked to click the category of the notified violation (Double-Row Parking), or to add it, in the field "other" if the type of violation is not still 
-present in the system. He is then asked to insert the license plate of the vehicle involved in the violation in the mobile application, he does it, then the app verifies that it 
+present in the system. Then, he is asked to insert the license plate of the vehicle involved in the violation in the mobile application, he does, then the app verifies that it 
 corresponds to the license plate identified with the photograph.
 
-\subsection{Validation of reported violations}
+\subsubsection{Use case: User sends pictures on mobile phone to notify a parking violation}
+\begin{center}
+    \begin{tabular}{|p{3cm}|p{7cm}|}
+        \multicolumn{2}{c}{\textbf{User sends pictures to notify violation}} \\
+        \hline
+        \textbf{Name} & Notification of violation by a user \\
+        \hline
+        \textbf{Actor} & User \\
+        \hline
+        \textbf{Goals} & R2 \\
+        \hline
+        \textbf{Entry conditions} & The user must be registered to the application, and he must have logged \\
+        \hline
+        \textbf{Event flow} & 1. The user makes pictures of the violation \\ 
+        & 2. The user must click on the "Notify a violation" button \\ 
+        & 3. The user inserts data of the violation\\
+        & 4. The user includes the two pictures \\
+        & 5. The user checks whether the category of notified violation is present or not \\ 
+        & 6. The user chooses "Double-Row Parking", then submits \\ 
+        & 7. The system ask the user to insert the license plate (notified violation includes a vehicle) \\
+        & 8. The user inserts license plate and submits \\
+        & 9. The system validates the license plate \\
+        \hline
+        \textbf{Exit conditions} & The violation has been notified to the system \\
+        \hline
+        \textbf{Exceptions}
+        & \begin{itemize}
+            \item The user is not registered
+            \item The user is not logged
+            \item The chosen category of the violation includes a vehicle but the license plate is not manually inserted by the user
+            \item The license plate notified by the user doesn't correspond to the license plate identified by the pictures sent 
+        \end{itemize} \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsection{R3: Validation of reported violations}
 \begin{itemize}
     \item Whenever a violation is reported by a user, it is sent to a random group of $k$ SafeStreets users
     \item Users who receive the notification about this approval process are then asked to approve or reject the report or declare neutral if they are not able to verify
@@ -79,26 +120,92 @@ corresponds to the license plate identified with the photograph.
     \item If the answers of the users for validation, after a settled timeout, are not all received, the answer is automatically considered neutral
 \end{itemize}
 \subsubsection{Scenario 3}
-SafeStreets has received the notification of Mario Rossi regarding a violation of double-row parking. To verify the violation, it sends a request to a 
-number k of users. The number of users is randomly chosen, and depend from the number of users logged in the application at the time the system received the report of Mario Rossi
+SafeStreets has received the notification of Mario Rossi regarding a violation of double-row parking. To verify the violation, it sends a request to a number k of users. The number of users is randomly chosen, and depends on the number of users logged in the application at the time the system received the report of Mario Rossi
 and the users that were logged just a few time before, to increase probability they will be available to answer the report. K users receive the request for validation, and they start 
 answering the report. The system receives reports and makes the algebraic sum of approvals and rejections. The calculated sum is equal to $m$ and comparing the values, the result of the 
 inequation $m$>$v$ is positive; as a consequence, the system validates the report and registers the violation.
 
-\subsection{Allow a user to see the areas where a violation is more likely to happen}
+\subsubsection{Use case: The system validates a reported violation}
+\begin{center}
+    \begin{tabular}{|p{3cm}|p{7cm}|}
+        \multicolumn{2}{c}{\textbf{User sends pictures to notify violation}} \\
+        \hline
+        \textbf{Name} & Validation of violation  \\
+        \hline
+        \textbf{Actor} & k users \\
+        \hline
+        \textbf{Goals} & R3 \\
+        \hline
+        \textbf{Entry conditions} & A violation must have been notified by a user \\
+        \hline
+        \textbf{Event flow} & 1. The system sends a request to a number k of users \\ 
+        & 2. Every user, that receives the request and is able to answer, does \\ 
+        & 3. The system counts the answers and makes the algebraic sum, considering that:\\
+        &   - +1 is a confirmation of the violation \\
+        &   - 0 is an absent response or an agnostic report of the violation \\
+        &   - -1 is a refusal of the violation \\
+        & 4. The system compares the calculated sum with the memorized acceptance threshold value \\
+        & 5. The system validates the report\\ 
+        & 6. The system registers the violation \\ 
+        \hline
+        \textbf{Exit conditions} & The system has validated and registered the violation \\
+        \hline
+        \textbf{Exceptions}
+        & \begin{itemize}
+            \item The calculated sum is smaller then the memorized acceptance threshold value
+            \item If no requested user answers the notification is automatically discarded
+        \end{itemize} \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsection{R4: Allow a user to see the areas where a violation is more likely to happen}
 \begin{itemize}
     \item SafeStreets can aggregate data inputted by users to show relevant statistics about the frequency of street violations
     \item Users can see how many violations usually happen in their neighborhood, in their current location or in an area of their choice
     \item A user has access to the type and amount of violations that happened
+    \item Users can insert a specific address to check
+    \item The system answers showing the near unsafe area, if the address is located in a safe area
+    \item The system answers showing more detailed data about frequency of car accidents and violations, if the address is in an unsafe area
 \end{itemize}
 \subsubsection{Scenario 4}
-Mario Rossi searches for a language school to improve English for his daughter, he found different schools in his city on the internet, but he wants an area 
+Mario Rossi searches for a language school to improve English for his daughter, he founds different schools in his city on the internet, but he wants an area 
 not too far from his house where the little girl can securely go also on foot. He has a list of five schools to decide. He is a user of SafeStreets, so 
-for every school in his list, he looks on the web interface of the application for the statistics about car accidents in all the five zones. He insert the 
+for every school in his list, he looks on the web interface of the application for the statistics about car accidents in all the five zones. He inserts the 
 address of the school, and the system responds with a map, showing the near unsafe area if the school is in a safe area, or, if the school is in an unsafe 
 area, showing more detailed data about frequency of car accidents and violations. This operation is repeated five times.
 
-\subsection{Register the violation}
+\subsubsection{Use case: User looks for statistics for unsafe areas}
+\begin{center}
+    \begin{tabular}{|p{3cm}|p{7cm}|}
+        \multicolumn{2}{c}{\textbf{User looks for statistics for unsafe areas}} \\
+        \hline
+        \textbf{Name} & Viewing of statistics \\
+        \hline
+        \textbf{Actor} & User \\
+        \hline
+        \textbf{Goals} & R4 \\
+        \hline
+        \textbf{Entry conditions} & The user must be registered to the application, and he must have logged on the web interface\\
+        \hline
+        \textbf{Event flow} & 1. The user must click on the "View statistics" button \\ 
+        & 2. The user must insert the address he looks for \\ 
+        & 3. The system shows a map with the area surrounding the inserted address \\
+        & 4. The user repeats this operation five times \\
+        \hline
+        \textbf{Exit conditions} & The user has seen the statistics he required \\
+        \hline
+        \textbf{Exceptions}
+        & \begin{itemize}
+            \item The user is not logged
+            \item Some fields of the address are wrongly inserted 
+            \item Some fields of the address are not filled 
+        \end{itemize} \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsection{R5: Register the violation}
 \begin{itemize}
     \item The reported violation must have been validated by the system
     \item The system checks the type of violation
@@ -106,9 +213,47 @@ area, showing more detailed data about frequency of car accidents and violations
     \item In case the violation is not supported by the system, the system updates the list of supported violations, then proceed as in the previous case
 \end{itemize}
 \subsubsection{Scenario 5}
-Luca Bianchi is in his lunch break, with his colleagues, and he is waiting for crossing the road on his way to go back to the office. While stopped at the semaphore, he sees a cyclist crossing the road with earphones. The intersection is very busy, and this behavior is dangerous for the cyclist himself and for those arounds. Luca Bianchi is a user of SafeStreets, so he immediately takes a picture to catch the moment. He logs into the mobile application, inserting his personal data, then he clicks on the button to notify a violation, he inserts time (1.40 p.m.), position (Viale Zara, 100, 20125 Milano MI), a brief description of the violation, and the two pictures. He is asked to click the category of the notified violation; as he doesn’t manage finding the correct category, he clicks on the field "other", in order to add the type of violation as it is not still present in the system. He inserts a name for the type of violation “Guide with earphones on the bike”, clicks on the field that says that the violation doesn’t include a vehicle (in the system a violation of type “Guide with earphones in the car” already exists, but it requires also the specification of the license plate as the violation includes a vehicle). The system checks the inserted category doesn’t overlap with the existing ones, adds it to the system, then proceeds as in scenario 3 to validate the notification. If the notification is validated and a policeman is working in that area, when he receives the notification of “New infraction”, he can verify himself and generate a traffic ticket.
+Luca Bianchi is in his lunch break, with his colleagues, and he is waiting for crossing the road on his way to go back to the office. While stopped at the semaphore, he sees a cyclist crossing the road with earphones. The intersection is very busy, and this behavior is dangerous either for the cyclist himself or for those arounds. Luca Bianchi is a user of SafeStreets, so he immediately takes a picture to catch the moment. He logs into the mobile application, inserting his personal data, then he clicks on the button to notify a violation, he inserts time (1.40 p.m.), position (Viale Zara, 100, 20125 Milano MI), a brief description of the violation, and the two pictures. He is asked to click the category of the notified violation; as he doesn’t manage to find the correct category, he clicks on the field "other", in order to add the type of violation as it is not still present in the system. He inserts a name for the type of violation “Guide with earphones on the bike”, clicks on the field that says that the violation doesn’t include a vehicle (in the system a violation of type “Guide with earphones in the car” already exists, but it requires also the specification of the license plate as the violation includes a vehicle). The system checks the inserted category doesn’t overlap with the existing ones, adds it to the system, then proceeds as in scenario 3 to validate the notification. If the notification is validated and a policeman is working in that area, when he receives the notification of “New infraction”, he can verify himself and generate a traffic ticket.
 
-\subsection{Allow authorities to see data about violations and who committed them}
+\subsubsection{Use case: A violation is registered}
+\begin{center}
+    \begin{tabular}{|p{3cm}|p{7cm}|}
+        \multicolumn{2}{c}{\textbf{User notify a violation, that is registered}} \\
+        \hline
+        \textbf{Name} & Registration of a notified violation by a user \\
+        \hline
+        \textbf{Actor} & User \\
+        \hline
+        \textbf{Goals} & R5 \\
+        \hline
+        \textbf{Entry conditions} & The user must be registered to the application, and he must have logged \\
+        \hline
+        \textbf{Event flow} & 1. The user makes pictures of the violation \\ 
+        & 2. The user must click on the "Notify a violation" button \\ 
+        & 3. The user inserts data of the violation\\
+        & 4. The user includes the two pictures \\
+        & 5. The user checks whether the category of notified violation is present or not \\ 
+        & 6. The user clicks on the button "Other" to add a violation \\
+        & 7. The user writes "Guide with earphones on the bike" \\
+        & 8. The user clicks on the button "No vehicle involved", to say the new type violation doesn't include a vehicle \\
+        & 9. The user submits \\ 
+        & 10. The system checks the new category doesn't overlap with existing ones \\
+        & 11. The user inserts license plate and submits \\
+        & 12. Validation procedure follows structure of use case associated to Scenario 3 \\
+        \hline
+        \textbf{Exit conditions} & The user has registered a new type of violation \\
+        \hline
+        \textbf{Exceptions}
+        & \begin{itemize}
+            \item The user is not registered
+            \item The user is not logged
+            \item The added category (or similar) already exists
+        \end{itemize} \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsection{R6: Allow authorities to see data about violations and who committed them}
 \begin{itemize}
     \item Authorities can access all data about violations that a standard user can access
     \item Authorities also have access to more specific data about who committed a violation, like the license plait of the car or how many infractions have been associated to a specific car
@@ -117,36 +262,168 @@ Luca Bianchi is in his lunch break, with his colleagues, and he is waiting for c
 \subsubsection{Scenario 6}
 A notification of a violation including a vehicle has just been made by a registered user and has been validated. The type of violation is “Stop in front of driveway”, and the offender car, that has been identified with its license plate, was already present in the list of offenders that SafeStreets uses to keep track of most frequently guilty vehicles. The system updates the number of infractions related to that car; besides, an authority is randomly chosen. This authority checks the correct update and then enables the system forwarding data of offender to the municipality in order to allow local police generating a traffic ticket. The selected authority is also enabled to see the history of violations regarding the offender and attaches this information to the data sent to the municipality.
 
-\subsection{Allow any citizen to become a user by providing a document}
-\begin{itemize}
-    \item A citizen can register to SafeStreets by providing their ID number
-    \item The system must allow a user to register with an email and a password, that will be asked every time they log in
-\end{itemize}
-\subsubsection{Scenario 7}
-Scenario 1 will suite also this requirement.
+\subsubsection{Use case: Viewing of data about violations and offenders by authorities}
+\begin{center}
+    \begin{tabular}{|p{3cm}|p{7cm}|}
+        \multicolumn{2}{c}{\textbf{Viewing of data about violations and offenders by authorities}} \\
+        \hline
+        \textbf{Name} & An authority sees offenders profile and data \\
+        \hline
+        \textbf{Actor} & Authority \\
+        \hline
+        \textbf{Goals} & R6 \\
+        \hline
+        \textbf{Entry conditions} & A notification, including a vehicle, must have been made, validated and registered \\
+        \hline
+        \textbf{Event flow} & 1. The system has identified the license plate of the offender \\ 
+        & 2. The system update number of violations associated to that vehicle \\ 
+        & 3. The system randomly chooses an authority \\
+        & 4. The authority checks the correct update of data \\
+        & 5. The authority enables the system forwarding data of the offender to the municipality \\ 
+        & 6. The authority checks the history of violation related to the offender \\ 
+        & 7. The authority enables the system sending this information to the municipality \\
+        \hline
+        \textbf{Exit conditions} & The municipality has been forwarded data of an offender validated by SafeStreets \\
+        \hline
+        \textbf{Exceptions}
+        & \begin{itemize}
+            \item Data regarding the number of violations of the offender are not correctly updated
+            \item The license plate of the offender is not identified
+            \item There are no available authorities 
+        \end{itemize} \\
+        \hline
+    \end{tabular}
+\end{center}
 
-\subsection{Allow authorities to register with a special user profile}
+\subsection{R7: Allow authorities to register with a special user profile}
 \begin{itemize}
     \item Authorities must first register as citizens
     \item A standard user profile can be upgraded to authority profile if it is verified by the system
     \item To obtain privileged access, the user must provide a valid document that proves their authority status
 \end{itemize}
-\subsubsection{Scenario 8}
-Paolo Brambilla is a policeman, he wants to register to SafeStreets, so by is tablet he accedes the web interface, inserts his data for standard user registration (see Scenario 1), then he is a registered user. He wants to update his profile to be enabled, as a member of the local police, to accede the most advanced functions of the system. He must click on the button “Update profile”, then he is asked to write his police ID badge number and his actual district, then clicks on the button “Update to authority”. The system verifies his ID badge number, sending it to the municipality that confirms or discard the identification of the policeman, checking his personal data, his area of competence and his badge. If the authority identity is validated, the profile is correctly updated. An email of confirmation of updating is sent to Paolo Brambilla’s address. Now he can log as an authority to SafeStreets and is enabled to all the advances functions of the system. If the authority identity is rejected, the system doesn’t change anything in the user profile.
+\subsubsection{Scenario 7}
+Paolo Brambilla is a policeman, he wants to register to SafeStreets, so by his tablet he accedes the web interface, inserts his data for standard user registration (see Scenario 1), then he is a registered user. He wants to update his profile to be enabled, as a member of the local police, to accede the most advanced functions of the system. He must click on the button “Update profile”, then he is asked to write his police ID badge number and his actual district, then clicks on the button “Update to authority”. The system verifies his ID badge number, sending it to the municipality that confirms or discard the identification of the policeman, checking his personal data, his area of competence and his badge. If the authority identity is validated, the profile is correctly updated. An email of confirmation of updating is sent to Paolo Brambilla’s address. Now he can log as an authority to SafeStreets and is enabled to all the advances functions of the system. If the authority identity is rejected, the system doesn’t change anything in the user profile.
 
-\subsection{Unsafe Areas Identification}
+\subsubsection{Use case: User registers as an authority}
+\begin{center}
+    \begin{tabular}{|p{3cm}|p{7cm}|}
+        \multicolumn{2}{c}{\textbf{Registration of an authority}} \\
+        \hline
+        \textbf{Name} & Registration of an authority \\
+        \hline
+        \textbf{Actor} & Visitor/User/Authority \\
+        \hline
+        \textbf{Goals} & R7 \\
+        \hline
+        \textbf{Entry conditions} & The user must have accessed the web interface \\
+        \hline
+        \textbf{Event flow} & 1. The Visitor registers as in use case of scenario 1 \\ 
+        & 2. The user must click on the "Update profile" button \\ 
+        & 3. The system ask to insert data for proving authority role \\
+        & 4. The user inserts the police ID badge number and his district \\
+        & 5. The user must click on the "Update to authority" button \\ 
+        & 6. The system sends data to municipality \\ 
+        & 7. The municipality validates data \\
+        & 8. The system updates the user profile to authority level \\
+        & 7. The system sends an email of confirmation \\
+        & 8. The system saves the authority's data \\
+        \hline
+        \textbf{Exit conditions} & The user has become an authority \\
+        \hline
+        \textbf{Exceptions}
+        & \begin{itemize}
+            \item The inserted district is not valid
+            \item The police ID badge is already registered             
+            \item The police ID badge is not valid
+            \item User's data don't match with data of municipality to confirm authority role
+            \item Some mandatory fields are not filled 
+        \end{itemize} \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsection{R8: Unsafe Areas Identification}
 \begin{itemize}
   \item SafeStreets can cross information from different sources to identify potentially unsafe areas
   \item SafeStreets may be integrated with a public service, offered by the municipality, that provides such information
   \item Once identified, SafeStreets can suggest possible interventions to prevent accidents
+  \item The system checks whether the selected areas (from data for new statistics) are considered safe or unsafe 
+  \item If the area is considered unsafe, SafeStreets runs an algorithm to add received data and generate new percentages, combining new data with the already existing ones
+  \item If the area is considered safe, the information received is simply overwritten and the area is marked as unsafe
 \end{itemize}
-\subsubsection{Scenario 9}
-Paolo Brambilla and his colleagues are authorities registered on SafeStreets, they work for local police. This month a huge number of car accidents has been registered by the municipality, the 65\% of them in the are of San Basilio, Roma RO, Italia. As both members of municipality and authorities of SafeStreets they are appointed by municipality to collect all data regarding the unsafe identified area. Then they log into SafeStreets by web interface and they upload information about types of accidents, percentage of injuries, percentage of frequency on SafeStreets. The system receives data for new statistics, checks whether the selected areas are considered safe or unsafe. If the area is considered unsafe, SafeStreets runs an algorithm to add received data and generate new percentages, combining new data with the already existing ones. If the area is considered safe, the information received is simply overwritten and the area is marked as unsafe.
+\subsubsection{Scenario 8}
+Paolo Brambilla and his colleagues are authorities registered on SafeStreets, they work for local police. This month a huge number of car accidents has been registered by the municipality, the 65\% of them in the area of San Basilio, Roma RO, Italia. As both members of municipality and authorities of SafeStreets they are appointed by municipality to collect all data regarding the unsafe identified area. Then they log into SafeStreets by web interface and they upload information about types of accidents, percentage of injuries, percentage of frequency on SafeStreets. The system receives data for new statistics, checks whether the selected areas are considered safe or unsafe. The area is considered unsafe, so SafeStreets runs an algorithm to add received data and generate new percentages, combining new data with the already existing ones. Then saves results.
+\subsubsection{Use case: Authorities provide unsafe areas identification}
+\begin{center}
+    \begin{tabular}{|p{3cm}|p{7cm}|}
+        \multicolumn{2}{c}{\textbf{Unsafe areas identification}} \\
+        \hline
+        \textbf{Name} & Unsafe areas identification \\
+        \hline
+        \textbf{Actor} & Authorities \\
+        \hline
+        \textbf{Goals} & R8 \\
+        \hline
+        \textbf{Entry conditions} & The authorities must have been registered to SafeStreets \\
+        \hline
+        \textbf{Event flow} & 1. Members of municipality and authorities collect data about types of accidents and percentages\\ 
+        & 2. The authorities log on the web interface  \\ 
+        & 3. The authorities upload the information collected \\
+        & 4. The system receives new data \\
+        & 5. The system checks whether the selected area is considered safe or unsafe \\ 
+        & 6. The system finds the area is unsafe, so it runs an algorithm to add received data \\
+        & 7. The system's algorithm generates new percentages, combining new data with the already existing ones \\
+        & 8. The system saves results \\ 
+        \hline
+        \textbf{Exit conditions} & New statistics have been saved by the system \\
+        \hline
+        \textbf{Exceptions}
+        & \begin{itemize}
+            \item The authorities are not registered
+            \item Data inserted are not correctly uploaded
+            \item Data of violations and accidents are not correctly inserted in fields
+            \item The algorithm doesn't find a suitable solution, combining data
+        \end{itemize} \\
+        \hline
+    \end{tabular}
+\end{center}
 
-\subsection{Traffic Ticket Generation}
+\subsection{R9: Traffic Ticket Generation}
 \begin{itemize}
   \item SafeStreets can generate tickets for traffic violations reported from registered users
   \item The information is kept safe and intact through the chain of custody, from the end user to the local police officer issuing the tickets
 \end{itemize}
-\subsubsection{Scenario 10}
-It continues from scenario 6. The system enables just one authority to keep the chain of custody of information. As soon as they system validate the violation, the information regarding the license plate is immediately locked under the supervision of an authority, and the general statistics are updated. Only the approval of the authority will enable the forwarding towards municipality on a safe channel, reserved to authorities.
+\subsubsection{Scenario 9}
+It continues from scenario 6. The system enables just one authority to keep the chain of custody of information. As soon as the system validates the violation, the information regarding the license plate is immediately locked under the supervision of an authority, and the general statistics are updated. Only the approval of the authority will enable the forwarding towards municipality on a safe channel, reserved to authorities.
+
+\subsubsection{Use case: An authority provides municipality of information and traffic ticket is generated}
+\begin{center}
+    \begin{tabular}{|p{3cm}|p{7cm}|}
+        \multicolumn{2}{c}{\textbf{A traffic ticket is generated}} \\
+        \hline
+        \textbf{Name} & A traffic ticket is generated \\
+        \hline
+        \textbf{Actor} & Authority \\
+        \hline
+        \textbf{Goals} & R9 \\
+        \hline
+        \textbf{Entry conditions} & The authority must be registered to the application, and he must have logged  \\
+        & A violation must have been notified \\
+        \hline
+        \textbf{Event flow} & 1. The system enables an authority to keep chain of custody \\ 
+        & 2. The system validates the violation and updates statistics\\ 
+        & 3. The information is locked under the supervision of the authority \\
+        & 4. The authority checks the system's correct update of statistics \\
+        & 5. The authority approves the system forwarding offender's license plate towards municipality on a safe channel \\ 
+        \hline
+        \textbf{Exit conditions} & Traffic ticket is generated \\
+        \hline
+        \textbf{Exceptions}
+        & \begin{itemize}
+            \item The chain of custody is broken (encryption algorithm fails)
+            \item The system doesn't validate the violation
+            \item The information is not correctly locked 
+        \end{itemize} \\
+        \hline
+    \end{tabular}
+\end{center}
