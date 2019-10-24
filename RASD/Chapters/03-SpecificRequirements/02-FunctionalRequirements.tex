@@ -118,7 +118,7 @@
 
 \subsection{R3: Validation of reported violations}
 \begin{itemize}
-    \item Whenever a violation is reported by a user, it is sent to a random group of $k$ SafeStreets users
+    \item Whenever a violation is reported by a user, it is sent to a group of $k$ SafeStreets users
     \item Users who receive the notification about this approval process are then asked to approve or reject the report or declare neutral if they are not able to verify
     \item The report is validated if and only if the algebraic sum of approvals (+1), neutralities (0) and rejections (-1) is at least $v$
     \item Every user is supposed to respond, the system expects to receive $k$ answers
@@ -143,7 +143,7 @@
                 \hline
                 \textbf{Event flow} &
                 \begin{enumerate}
-                     \item The system sends a request to a number $k$ of users
+                    \item The system sends a request to a number $k$ of users
                     \item Users answer the poll
                     \item The system counts the answers and makes the algebraic sum $m$, considering that:
                     \begin{itemize}
@@ -249,6 +249,7 @@
                 \item The user writes the name of the new violation 
                 \item The user submits the report
                 \item The system checks the new category doesn't overlap with existing ones 
+                \item The system registers the new violation type
                 \item Validation procedure goes on as in Scenario 3
             \end{enumerate} \\
             \hline
@@ -279,11 +280,11 @@
             \hline
             \textbf{Goals} & R6 \\
             \hline
-            \textbf{Entry conditions} & A notification, including a vehicle, must have been made, validated and registered \\
+            \textbf{Entry conditions} & A notification, including a vehicle, must have been made, validated and registered.
+            The system has identified the license plate of the offender. \\
             \hline
             \textbf{Event flow} &
             \begin{enumerate}
-                \item The system has identified the license plate of the offender
                 \item The system updates the number of violations associated to that vehicle
                 \item The authority checks the history of violation related to the offender
                 \item The authority generates a traffic ticket
