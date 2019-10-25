@@ -32,6 +32,7 @@ sig Authority extends User {
 sig Report {
   pictures: set Picture,
   location: one Location,
+  timestamp: one Int,
   author: one User,
   licensePlate: lone LicensePlate,
   violationCategory: one ViolationCategory,
@@ -40,22 +41,9 @@ sig Report {
   #pictures > 0
 }
 
-fact uniquePoll {
-    no disjoint p1, p2: Poll | p1.report = p2.report
-}
-
-fact onePollPerReport {
-    all r: Report | one p: Poll | p.report = r
-}
-
-fact validReport {
-  all r: Report | one p: Poll |
-    (p.report = r) && (r.isValid = True <=> p.score > 15)
-}
-
-
 sig PollAnswer {
-  value: one Int
+  value: one Int,
+  author: one User
 }{
   -1 <= value && value <= 1
 }

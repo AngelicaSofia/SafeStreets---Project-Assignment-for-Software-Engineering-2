@@ -116,10 +116,13 @@
     \end{center}
 \end{description}
 
+
 \subsection{R3: Validation of reported violations}
 \begin{itemize}
-    \item Whenever a violation is reported by a user, it is sent to a group of $k$ SafeStreets users
-    \item Users who receive the notification about this approval process are then asked to approve or reject the report or declare neutral if they are not able to verify
+    \item Whenever a violation is reported the system checks whether or not the license plate field has been filled
+    \item If the license plate is present, to prevent multiple tickets from being generated, the system verifies if the same kind of violation has already been reported in the previous $h$ hours for the same vehicle
+    \item If the same violation has already been reported in the previous $h$ hours the report is automatically discarded, otherwise it is sent to a group of $k$ SafeStreets users for validation
+    \item Users who receive the notification about this approval process are then asked to approve, reject or declare themselves neutral about the report
     \item The report is validated if and only if the algebraic sum of approvals (+1), neutralities (0) and rejections (-1) is at least $v$
     \item Every user is supposed to respond, the system expects to receive $k$ answers
     \item If a user doesn't answer within a certain amount of time, their answer is considered neutral
@@ -143,6 +146,7 @@
                 \hline
                 \textbf{Event flow} &
                 \begin{enumerate}
+                    \item A user send a violation report to SafeStreets
                     \item The system sends a request to a number $k$ of users
                     \item Users answer the poll
                     \item The system counts the answers and makes the algebraic sum $m$, considering that:
@@ -161,6 +165,11 @@
                 \end{enumerate} \\
                 \hline
                 \textbf{Exit conditions} & The system has validated and registered the violation \\
+                \hline
+                \textbf{Exceptions}
+                & \begin{itemize}
+                    \item Another violation report has already been sent in the previous $h$ hours with the same violation category and license plate
+                \end{itemize} \\
                 \hline
             \end{tabular}
         \end{center}
