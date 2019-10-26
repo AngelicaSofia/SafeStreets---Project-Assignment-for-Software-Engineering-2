@@ -35,10 +35,15 @@ fact noDoubleVoting {
         a1 in p.pollAnswers && a2 in p.pollAnswers && a1.author = a2.author
 }
 
-fact noMultipleTickets {
+fact noMultipleReports {
     all r1, r2: Report |
         (r1.violationCategory = r2.violationCategory 
         && (r1.timestamp > r2.timestamp) 
         && (r1.timestamp - r2.timestamp) < 4)
         => r1.licensePlate != r2.licensePlate
+}
+
+fact noMultipleTickets {
+    no disj t1, t2: Ticket |
+        t1.report = t2.report
 }
