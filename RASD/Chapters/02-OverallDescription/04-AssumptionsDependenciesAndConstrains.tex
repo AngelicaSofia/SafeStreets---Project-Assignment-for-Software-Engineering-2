@@ -1,15 +1,18 @@
 \section{Assumptions, dependencies and constraints}
 
-\subsection{Domain assumption}
+\subsection{Domain assumptions}
   \begin{itemize}
-    \item Personal information that a visitor has to provide to become a registered user are name, surname, email, ID number and password
-    \item Emails are unique and a user can only be associated to one email address
-    \item After registration the system sends an email to the user containing a recap of the information they provided and an activation link
-    \item Once the activation link is opened in a browser the email address of the user is verified and the user is automatically logged in
-    \item Two-factors authentication can be enabled by the user by providing a phone number (SMS authentication) or by scanning a QR Code with an authenticator app (Token authentication)
-    \item Once logged in a user can notify traffic violations
-    \item Pictures with a resolution of less than 2MP are automatically rejected
-    \item Users can view a custom map that is updated periodically and shows unsafe streets by highlighting them with a gradient of colors from yellow to red which indicates the level of danger
+    \item $[$D1$]$ Personal information that a visitor has to provide to become a registered user are name, surname, email, ID number and password
+    \item $[$D2$]$ Emails are unique and a user can only be associated to one email address
+    \item $[$D3$]$ Two-factors authentication can be enabled by the user by providing a phone number (SMS authentication) or by scanning a QR Code with an authenticator app (Token authentication)
+    \item $[$D4$]$ Users are enabled to submit reports only after their ID number has been verified by an API offered by public authorities
+    \item $[$D5$]$ Citizens must be at least 18 years old to register to SafeStreets
+    \item $[$D6$]$ Real world authorities can be uniquely identified through a badge number
+    \item $[$D7$]$ Municipalities expose APIs that allow SafeStreets to identify an authority by providing the badge number
+    \item $[$D8$]$ Municipalities can expose APIs that allow SafeStreets to retrieve data about other accidents that weren't notified through SafeStreets
+    \item $[$D9$]$ Once a SafeStreets report is validated, it has the same legal validity as a report filed personally by an authority, so authorities can emit tickets based on approved reports
+    \item $[$D10$]$ The safety level of an area is computed taking into account only street violations and accidents and is based on previous data
+    \item $[$D11$]$ No one can alter a report once it has been sent, it can only be validated or rejected
   \end{itemize}
 
 \subsection{Dependencies}

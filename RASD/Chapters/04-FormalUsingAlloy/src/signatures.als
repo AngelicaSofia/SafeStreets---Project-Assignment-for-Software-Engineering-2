@@ -58,3 +58,9 @@ sig Poll {
   || isCompleted = False && #pollAnswers < 10)
   && score = sum pollAnswers.value
 }
+
+sig Ticket {
+  authority: one Authority,
+  report: one Report,
+  fine: one Int
+}
