@@ -1,6 +1,6 @@
 \section{Functional Requirements}
 
-\subsection{R1: Allow any citizen, as a visitor, to register on the mobile phone app or the web app and to become a user by providing a document}
+\subsection{R1: Allow any citizen of legal age, as a visitor, to register on the mobile phone app or the web app and to become a user by providing a document}
 \begin{itemize}
     \item The system must allow the visitor to provide credentials and personal data
     \item The system must verify the correspondence between the ID number provided by the visitor and their personal information
@@ -55,6 +55,7 @@
                 \item The ID card is already registered 
                 \item Visitor's data don't match with ID card data
                 \item Some mandatory fields are not filled 
+                \item The user is a minor
             \end{itemize} \\
             \hline
         \end{tabular}
@@ -94,7 +95,7 @@
             \textbf{Event flow} &
             \begin{enumerate}
                 \item The user takes pictures of the violation
-                \item The user must click on the "Notify a violation" button
+                \item The user clicks on the "Notify a violation" button
                 \item The user inserts data of the violation
                 \item The user includes the two pictures 
                 \item The user checks whether the category of notified violation is present or not
@@ -110,6 +111,7 @@
             & \begin{itemize}
                 \item The chosen category of the violation includes a vehicle but the license plate is not manually inserted by the user
                 \item The license plate notified by the user doesn't correspond to the license plate identified by the pictures sent 
+                \item At least one of the pictures attached to the report has been taken more than 2 hours before the submission 
             \end{itemize} \\
             \hline
         \end{tabular}
