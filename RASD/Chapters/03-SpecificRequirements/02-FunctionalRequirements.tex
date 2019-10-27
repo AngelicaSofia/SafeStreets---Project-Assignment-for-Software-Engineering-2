@@ -368,8 +368,13 @@
 \end{itemize}
 \begin{description}
     \item \textbf{Scenario 8} \newline
+        The system uses its own data, collected with reports of violation, and has the possibility to ask the municipality data about car 
+        accidents and violations in a specific area. This information is crossed to SafeStreets that integrates the given data with the information
+        already saved and verified. In this way the storage keeps track of the unsafe areas, that are identified as those with violations notified
+        by SafeStreets users, those with car accidents and damages provided by the municipality, and those areas that have both these 
+        information.
         
-    \item \textbf{Use case: Authorities provide unsafe areas identification}
+    \item \textbf{Use case: The system provides unsafe areas identification}
     \begin{center}
         \begin{tabular}{|p{3cm}|p{7cm}|}
             \multicolumn{2}{c}{\textbf{Unsafe areas identification}} \\
@@ -380,11 +385,15 @@
             \hline
             \textbf{Goals} & R8 \\
             \hline
-            \textbf{Entry conditions} &  \\
+            \textbf{Entry conditions} &  The system must select a specific area to identify\\
             \hline
             \textbf{Event flow} &
             \begin{enumerate}
-                \item TODO
+                \item The system queries verified and validated reports of SafeStreets about the selected area
+                \item $v$ violations are returned from reports
+                \item The system queries municipality about car accidents in the selected area
+                \item $a$ accidents are provided by the municipality
+                \item The system updates information regarding the selected area by marking the area unsafe if $m + v >$ 0
             \end{enumerate} \\
             \hline
             \textbf{Exit conditions} & New statistics have been saved by the system \\
