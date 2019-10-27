@@ -6,26 +6,35 @@ sig ViolationCategory {}
 
 sig LicensePlate {}
 
-sig Location {}
+sig Location {
+  latitude: one Int,
+  longitude: one Int
+}
 
 sig Picture {}
 
+sig Email {}
+
+sig PhoneNumber {}
+
+sig CharSeq {}
+
 sig Municipality {
-  name: one String,
-  province: one String
+  name: one CharSeq,
+  province: one CharSeq
 }
 
 sig User {
-  name: one String,
-  surname: one String,
-  email: one String,
-  phoneNumber: lone String,
-  password: one String,
-  idNumber: one String
+  name: one CharSeq,
+  surname: one CharSeq,
+  email: one Email,
+  phoneNumber: lone PhoneNumber,
+  password: one CharSeq,
+  idNumber: one CharSeq
 }
 
 sig Authority extends User {
-  badgeNumber: one String,
+  badgeNumber: one CharSeq,
   district: one Municipality
 }
 
@@ -36,7 +45,7 @@ sig Report {
   author: one User,
   licensePlate: lone LicensePlate,
   violationCategory: one ViolationCategory,
-  isValid: one Boolean
+  isValid: lone Boolean
 }{
   #pictures > 0
 }
@@ -53,14 +62,17 @@ sig Poll {
   pollAnswers: set PollAnswer,
   isCompleted: one Boolean,
   score: one Int
-}{
-  (isCompleted = True && #pollAnswers = 10
-  || isCompleted = False && #pollAnswers < 10)
-  && score = sum pollAnswers.value
 }
 
 sig Ticket {
   authority: one Authority,
   report: one Report,
   fine: one Int
+}
+
+sig Area {
+  points: set Location,
+  score: one Int
+}{
+  #points > 0
 }
