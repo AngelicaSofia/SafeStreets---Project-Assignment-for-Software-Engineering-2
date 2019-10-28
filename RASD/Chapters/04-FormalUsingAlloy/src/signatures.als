@@ -15,6 +15,8 @@ sig Picture {}
 
 sig Email {}
 
+sig IdNumber {}
+
 sig PhoneNumber {}
 
 sig CharSeq {}
@@ -30,7 +32,7 @@ sig User {
   email: one Email,
   phoneNumber: lone PhoneNumber,
   password: one CharSeq,
-  idNumber: one CharSeq
+  idNumber: one IdNumber
 }
 
 sig Authority extends User {

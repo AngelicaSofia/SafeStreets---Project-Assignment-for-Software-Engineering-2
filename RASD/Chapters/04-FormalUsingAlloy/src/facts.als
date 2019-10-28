@@ -32,7 +32,7 @@ fact onePollPerReport {
 }
 
 fact pollScore {
-    all p: Poll | p.score = sum p.pollAnswers.value
+    all p: Poll | p.score = (sum a: p.pollAnswers | a.value)
 }
 
 fact validatedReport {

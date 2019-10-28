@@ -1,22 +1,27 @@
 open facts
 open signatures
 
-pred world1 {
-    #ViolationCategory = 1
-    #LicensePlate = 1
-    #Location = 1
-    #Picture = 1
-    #Email = 1
-    #PhoneNumber = 1
-    #CharSeq = 1
-    #Municipality = 1
-    #User = 1
-    #Authority = 1
-    #Report = 1
-    #PollAnswer = 1
-    #Poll = 1
-    #Ticket = 1
-    #Area = 1
+pred show {}
+
+pred someValidatedReport {
+    some p: Poll | one r: Report |
+        p.report = r
+        && r.isValid = True
+        && p.isCompleted = True
 }
 
-run world1 for 20
+pred someTickets {
+    some t: Ticket | one r: Report |
+        t.report = r
+        && r.isValid = True
+}
+
+run show for 5 but
+    exactly 1 Report,
+    exactly 2 User,
+    exactly 1 Authority,
+    exactly 1 LicensePlate,
+    exactly 2 PhoneNumber,
+    exactly 2 Email
+run someValidatedReport for 5
+run someTickets for 5
