@@ -225,59 +225,14 @@
         \end{center}
 \end{description}
 
-\subsection{R5: Register the violation}
-\begin{itemize}
-    \item The reported violation must have been validated by the system
-    \item The system checks the type of violation
-    \item In case the violation is already supported by the system, the number of violations of that type is increased, the license plate of the involved vehicle is added to the list of offenders and in a report that SafeStreets will deliver to authorities
-    \item In case the violation is not supported by the system, the system updates the list of supported violations, then proceeds as in the previous case
-\end{itemize}
-\begin{description}
-    \item \textbf{Scenario 5} \newline
-        Luca Bianchi is in his lunch break, with his colleagues and he is waiting to cross the road on his way back to the office. While stopped at the semaphore, he sees a cyclist crossing the road with earphones. The intersection is very busy and this behavior is dangerous both for the cyclist and for those around him. Luca Bianchi is a user of SafeStreets, so he immediately takes a picture to catch the moment. He launches the mobile application, then he clicks on the button to report a violation, he inserts the position (Viale Zara, 100, 20125 Milano MI), a brief description of the violation and the two pictures. He is asked to select the category of the notified violation; as he doesn't manage to find the correct category, he adds a new one. He inserts a name for the type of violation "Riding a bike with earphones". The system checks that the inserted category doesn't overlap with the existing ones, adds it to the system, then proceeds as in scenario 3 to validate the notification. If the notification is validated and a policeman is working in that area, when he receives the notification of "New infraction", he can verify himself and generate a traffic ticket.
-
-    \item \textbf{Use case: A violation is registered}
-    \begin{center}
-        \begin{tabular}{|p{3cm}|p{7cm}|}
-            \multicolumn{2}{c}{\textbf{User notify a violation, that is registered}} \\
-            \hline
-            \textbf{Name} & Registration of a notified violation by a user \\
-            \hline
-            \textbf{Actor} & User \\
-            \hline
-            \textbf{Goals} & R5 \\
-            \hline
-            \textbf{Entry conditions} & The user must be registered to the application and he must have logged in \\
-            \hline
-            \textbf{Event flow} &
-            \begin{enumerate}
-                 \item The user takes pictures of the violation
-                \item The user clicks on the "Notify a violation" button
-                \item The user inserts data of the violation
-                \item The user includes the two pictures 
-                \item The user checks whether the category of notified violation is present or not
-                \item The user clicks on the button "Other" to add a violation 
-                \item The user writes the name of the new violation 
-                \item The user submits the report
-                \item The system checks the new category doesn't overlap with existing ones 
-                \item The system registers the new violation type
-                \item Validation procedure goes on as in Scenario 3
-            \end{enumerate} \\
-            \hline
-            \textbf{Exit conditions} & The user submits the report \\
-            \hline
-        \end{tabular}
-    \end{center}
-\end{description}
-
-\subsection{R6: Allow authorities to see data about violations and who committed them}
+\subsection{R5: Allow authorities to see data about violations and who committed them}
 \begin{itemize}
     \item Authorities can access all data about violations that a standard user can access
     \item Authorities also have access to more specific data about who committed a violation, like the license plate of the car or how many infractions have been associated to a specific car
     \item In case the validated report includes a vehicle and the license plate is correctly identified, the authority can generate a traffic ticket
 \end{itemize}
 \begin{description}
-    \item \label{scenario6} \textbf{Scenario 6} \newline
+    \item \label{scenario5} \textbf{Scenario 5} \newline
         A notification of a violation including a vehicle has just been made by a registered user and has been validated. The type of violation is "Stop in front of driveway" and the offender car, that has been identified with its license plate, was already present in the list SafeStreets uses to keep track of offenders. The system updates the number of infractions related to that car. An authority views the new infraction and generate a traffic ticket. The authority is also able to see the history of violations regarding the offender.
 
     \item \textbf{Use case: Viewing of data about violations and offenders by authorities}
@@ -289,7 +244,7 @@
             \hline
             \textbf{Actor} & Authority \\
             \hline
-            \textbf{Goals} & R6 \\
+            \textbf{Goals} & R5 \\
             \hline
             \textbf{Entry conditions} & A notification, including a vehicle, must have been made, validated and registered.
             The system has identified the license plate of the offender. \\
@@ -312,14 +267,14 @@
     \end{center}
 \end{description}
 
-\subsection{R7: Allow authorities to register with a special user profile}
+\subsection{R6: Allow authorities to register with a special user profile}
 \begin{itemize}
     \item Authorities must first register as citizens
     \item A standard user profile can be upgraded to an authority profile if it is verified by the system
     \item To obtain privileged access, the user must provide a valid document that proves their authority status
 \end{itemize}
 \begin{description}
-    \item \textbf{Scenario 7} \newline
+    \item \textbf{Scenario 6} \newline
         Paolo Brambilla is a policeman, he wants to register to SafeStreets and using his tablet he accesses the web interface, inserts his data for standard user registration \hyperref[scenario1]{(see Scenario 1)} and becomes a registered user. He wants to upgrade his profile to be enabled, as a member of the local police, to access the most advanced functions of the system. He must click on the button "Upgrade profile", then he is asked to write his police ID badge number and his current district, then he clicks on the button "Upgrade to authority". The system verifies his ID badge number, sending it to the municipality that confirms or discards the identification of the policeman, checking his personal data, his area of competence and his badge. If the authority identity is validated, the profile is correctly upgraded. An confirmation email of the upgrade is sent to Paolo Brambilla's address. Now he can log to SafeStreets as an authority and has access to all the advanced functions of the system. If the authority identity is rejected, the system doesn't change anything in the user profile.
 
     \item \textbf{Use case: User registers as an authority}
@@ -331,7 +286,7 @@
             \hline
             \textbf{Actor} & User/Authority \\
             \hline
-            \textbf{Goals} & R7 \\
+            \textbf{Goals} & R6 \\
             \hline
             \textbf{Entry conditions} & The user must be registered to the application and he must have logged in \\
             \hline
@@ -360,14 +315,14 @@
     \end{center}
 \end{description}
 
-\subsection{R8: Unsafe Areas Identification}
+\subsection{R7: Detection of unsafe areas and possible interventions}
 \begin{itemize}
   \item SafeStreets can cross information from different sources to identify potentially unsafe areas
   \item SafeStreets may be integrated with a public service, offered by the municipality, that provides such information
   \item Once identified, SafeStreets can suggest possible interventions to prevent accidents
 \end{itemize}
 \begin{description}
-    \item \textbf{Scenario 8} \newline
+    \item \textbf{Scenario 7} \newline
         The system uses its own data, collected with reports of violation, and has the possibility to ask the municipality data about car 
         accidents and violations in a specific area. This information is crossed to SafeStreets that integrates the given data with the information
         already saved and verified. In this way the storage keeps track of the unsafe areas, that are identified as those with violations notified
@@ -383,7 +338,7 @@
             \hline
             \textbf{Actor} & SafeStreets Server \\
             \hline
-            \textbf{Goals} & R8 \\
+            \textbf{Goals} & R7 \\
             \hline
             \textbf{Entry conditions} &  The system must select a specific area to identify\\
             \hline
@@ -403,17 +358,17 @@
     \end{center}
 \end{description}
 
-\subsection{R9: Traffic Ticket Generation}
+\subsection{R8: Traffic ticket generation from validated reports}
 \begin{itemize}
   \item SafeStreets can generate tickets for traffic violations reported from registered users
   \item The information is kept safe and intact through the chain of custody, from the end user to the local police officer issuing the tickets
 \end{itemize}
 \begin{description}
-    \item \textbf{Scenario 9} \newline
+    \item \textbf{Scenario 8} \newline
         The information about the reports is stored in a database where privileges about the creation and modification of the information
         are distinct. Both the web interface and the mobile application can create new reports, only system administrators have full access to
-        the database and thus it's their responsibility to guarantee that other actors don't alter the data
-
+        the database and thus it's their responsibility to guarantee that other actors don't alter the data. These conditions are necessary to allow SafeStreets tickets to have legal validity, thus enabling local authorities to automatically generate traffic ticket from the client application.
+ 
     \item \textbf{Use case: An authority provides municipality of information and traffic ticket is generated}
     \begin{center}
         \begin{tabular}{|p{3cm}|p{7cm}|}
@@ -423,7 +378,7 @@
             \hline
             \textbf{Actor} & Authority \\
             \hline
-            \textbf{Goals} & R9 \\
+            \textbf{Goals} & R8 \\
             \hline
             \textbf{Entry conditions} & A violation has been approved \\
             \hline
@@ -431,7 +386,7 @@
             \begin{enumerate}
                 \item The system creates new records in the database regarding the reported violation
                 \item Authorities can access report data in read-only mode
-                \item Through the web interface an authority automatically generate a standard ticket, filling out the missing information
+                \item Through the web interface an authority can automatically generate a standard ticket, filling out the missing information
             \end{enumerate} \\
             \hline
             \textbf{Exit conditions} & Traffic ticket is generated \\
@@ -447,28 +402,23 @@
 
 \subsection{Traceability Matrix}
 \begin{center}
-    \begin{tabular}{|p{2cm}|p{8cm}|}
-        \multicolumn{2}{c}{\textbf{Traceability Matrix}} \\
+    \begin{tabular}{c|l|l}
         \hline
-        \textbf{Requirement} & \textbf{Use case} \\
+        \textbf{Goals} & \textbf{Requirement} & \textbf{Domain assumptions} \\
         \hline
-        R1 & Visitor registration on mobile phone \\    
+        G1 & R1, R2 & D1, D5 \\
         \hline
-        R2 & User sends pictures on mobile phone to notify a parking violation \\    
+        G2 & R4, R7 & D8, D10 \\
         \hline
-        R3 & The system validates a reported violation \\    
+        G3 & R5, R8 & D7, D9 \\
         \hline
-        R4 & User looks for statistics for unsafe areas \\    
+        G4 & R3 & D9, D11 \\
         \hline
-        R5 & A violation is registered \\    
+        G5 & R1, R6 & D2, D3, D6 \\
         \hline
-        R6 & Viewing of data about violations and offenders by authorities \\    
+        G6 & R5, R8 & D1, D2 \\
         \hline
-        R7 & User registers as an authority \\  
-        \hline
-        R8 & Authorities provide unsafe areas identification \\    
-        \hline
-        R9 & An authority provides municipality of information and traffic ticket is generated \\      
+        G7 & R1, R3, R5, R6, R8 & D1, D4, D5, D9, D11  \\
         \hline
     \end{tabular}
 \end{center}
