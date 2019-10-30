@@ -16,6 +16,10 @@ pred someTickets {
         && r.isValid = True
 }
 
+pred someAreas {
+    #Area = 1
+}
+
 run show for 5 but
     exactly 1 Report,
     exactly 2 User,
@@ -25,3 +29,4 @@ run show for 5 but
     exactly 2 Email
 run someValidatedReport for 5
 run someTickets for 5
+run someAreas for 1

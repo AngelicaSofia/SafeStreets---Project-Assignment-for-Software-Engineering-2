@@ -2,8 +2,7 @@ open signatures
 
 fact pollStatus {
   all p: Poll |
-    (p.isCompleted = True => #p.pollAnswers >= 5)
-    && (p.isCompleted = False => #p.pollAnswers < 5)
+    p.isCompleted = True <=> #p.pollAnswers >= 5
 }
 
 fact uniqueIdNumber {
@@ -52,6 +51,12 @@ fact validatedReport {
         ))
 }
 
+fact authorDoesNotVoteTheirReport {
+    all p: Poll | no a: PollAnswer |
+        a in p.pollAnswers
+        && p.report.author = a.author
+}
+
 fact noDoubleVoting {
     all p: Poll | no disj a1, a2: PollAnswer |
         a1 in p.pollAnswers
@@ -80,4 +85,14 @@ fact pollAnswerAssociation {
 fact ticketsForValidReportOnly {
     all t: Ticket | one r: Report |
         t.report = r && r.isValid = True
+}
+
+fact areaReports {
+    all a: Area | all r: a.reports |
+        r.location in a.points
+}
+
+fact allReportsHaveAnArea {
+    all r: Report | some a: Area |
+        r in a.reports
 }

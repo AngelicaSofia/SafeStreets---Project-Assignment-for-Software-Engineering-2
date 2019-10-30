@@ -372,7 +372,7 @@
         accidents and violations in a specific area. This information is crossed to SafeStreets that integrates the given data with the information
         already saved and verified. In this way the storage keeps track of the unsafe areas, that are identified as those with violations notified
         by SafeStreets users, those with car accidents and damages provided by the municipality, and those areas that have both these 
-        information.
+        information. On a regular basis, SafeStreets sends an email to the municipalities that can intervene on unsafe areas suggesting possible solutions identified using a special algorithm.
         
     \item \textbf{Use case: The system provides unsafe areas identification}
     \begin{center}
@@ -393,7 +393,8 @@
                 \item $v$ violations are returned from reports
                 \item The system queries municipality about car accidents in the selected area
                 \item $a$ accidents are provided by the municipality
-                \item The system updates information regarding the selected area by marking the area unsafe if $m + v >$ 0
+                \item The system determines unsafe areas by testing the equation $v + a > 0$ on the registered areas
+                \item Periodically, the system sends an email containing possible solutions to the municipalities that can intervene on the unsafe areas identified
             \end{enumerate} \\
             \hline
             \textbf{Exit conditions} & New statistics have been saved by the system \\

@@ -74,7 +74,9 @@ sig Ticket {
 
 sig Area {
   points: set Location,
-  score: one Int
+  score: one Int,
+  reports: set Report
 }{
   #points > 0
+  #reports > 0
 }
