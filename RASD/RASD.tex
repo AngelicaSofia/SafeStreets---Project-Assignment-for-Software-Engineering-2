@@ -9,6 +9,9 @@
 
 % Package for pdf metadata
 \usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{titlepic}
+
 \hypersetup{
   pdftitle={RASD},
   pdfauthor={Carlo Dell'Acqua, Adriana Ferrari, Angelica Sofia Valeriani},                     % author
@@ -21,13 +24,18 @@
   urlcolor=purple,
   linktoc=page
 }
-\setcounter{secnumdepth}{3}
-\begin{document}
-  % Cover
-  \title{RASD}
-  \author{Carlo Dell'Acqua, Adriana Ferrari, Angelica Sofia Valeriani}
-  \maketitle
 
+\setcounter{secnumdepth}{3}
+  % Cover
+
+\begin{titlepage}
+        \titlepic{\includegraphics[width=9cm]{RASD_Images/logo.jpg}}
+        \title{RASD}
+        \author{Carlo Dell'Acqua, Adriana Ferrari, Angelica Sofia Valeriani}
+\end{titlepage}
+
+\begin{document}
+\maketitle
   % Table of contents
   \tableofcontents
 
