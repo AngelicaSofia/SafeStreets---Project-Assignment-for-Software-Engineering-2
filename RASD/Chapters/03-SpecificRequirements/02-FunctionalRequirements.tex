@@ -455,23 +455,33 @@
 \newpage
 \subsection{Traceability Matrix}
 \begin{center}
-    \begin{tabular}{c|l|l}
+    \begin{tabular}{c|c|l|l}
         \hline
-        \textbf{Goals} & \textbf{Requirement} & \textbf{Domain assumptions} \\
+        \textbf{Ref} & \textbf{Goals} & \textbf{Requirement} & \textbf{Domain assumptions} \\
         \hline
-        G1 & R1, R2 & D1, D5 \\
+        1 & G1 & R1, R2 & D1, D5 \\
         \hline
-        G2 & R4, R7 & D8, D10 \\
+        2 & G2 & R4, R7 & D8, D10 \\
         \hline
-        G3 & R5, R8 & D7, D9 \\
+        3 & G3 & R5, R8 & D7, D9 \\
         \hline
-        G4 & R3 & D9, D11 \\
+        4 & G4 & R3 & D9, D11 \\
         \hline
-        G5 & R1, R6 & D2, D3, D6 \\
+        5 & G5 & R1, R6 & D2, D3, D6 \\
         \hline
-        G6 & R5, R8 & D1, D2 \\
+        6 & G6 & R5, R8 & D1, D2 \\
         \hline
-        G7 & R1, R3, R5, R6, R8 & D1, D4, D5, D9, D11  \\
+        7 & G7 & R1, R3, R5, R6, R8 & D1, D4, D5, D9, D11  \\
         \hline
     \end{tabular}
 \end{center}
+To improve readability, here is a brief description of the goals and the related requirements and domain assumptions. 
+\begin{enumerate}
+    \item The goal is to allow citizens of legal age to report violations. This means that citizens should be allowed to register providing a document to confirm their age and identity and then SafeStreets should allow them to submit pictures along with a report.
+    \item The goal is to show statistics about the safety of different areas, and possibly offer some suggestions to make the worst areas safer. The statistics are going to be more reliable if the municipalities allow SafeStreets to access their data about violations, but still the safety of an area is computed only using previous data and its accuracy is strictly dependent on the amount of reports that SafeStreets has access to.
+    \item The goal is to show the violations to the authorities, in order to enable them to take action. This means that SafeStreets must have a way to verify that a user is actually an authority, because only authorities are allowed to generate traffic tickets.
+    \item The goal is to validate reports through a reliable procedure. This means that after a report is sent, it can't be modified.
+    \item The goal is to provide secure authentication methods, for example by allowing two-factors authentication.
+    \item The goal is to securely store user data and make it available only to authorized people.
+    \item The goal is to give legal validity to approved violation reports, so that tickets can be generated: only users with a verified profile and who are of legal age are allowed to submit reports, and once generated, a report can't be altered.
+\end{enumerate}
