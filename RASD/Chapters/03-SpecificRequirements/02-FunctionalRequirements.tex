@@ -21,7 +21,7 @@
         He chooses the alternative he prefers, then he immediately receives the verification code on the medium he chose.
         He can confirm his registration by clicking on the verification code. The system then sends a recap to notify the positive outcome of registration. Mario is now a Registered
         User of SafeStreets; he can login to notify violations on the streets and is enabled to the use of all the functions for a basic user (not an authority) that the system provides.
-    \item \textbf{Use case: Visitor registration on mobile phone}
+    \item \textbf{Use case}
     \begin{center}
         \begin{tabular}{|p{3cm}|p{7cm}|}
             \multicolumn{2}{c}{\textbf{Visitor Registration}} \\
@@ -62,7 +62,7 @@
     \end{center}
 \end{description}
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{RASD_Images/SequenceDiagrams/1.jpg}
     \caption{\textit{Sequence diagram 1 - Visitor registration on mobile phone}}
@@ -85,7 +85,7 @@
         of the violation and the two pictures. He is asked to select the category of the notified violation (Double-Row Parking), or to add it if it's still not present in the system.
         Then, he is asked to insert the license plate of the vehicle involved in the violation in the mobile application, he does, then the app verifies that it 
         corresponds to the license plate identified with the photograph.
-    \item \textbf{Use case: User sends pictures on mobile phone to notify a parking violation}
+    \item \textbf{Use case}
     \begin{center}
         \begin{tabular}{|p{3cm}|p{7cm}|}
             \multicolumn{2}{c}{\textbf{User sends pictures to notify violation}} \\
@@ -124,13 +124,12 @@
     \end{center}
 \end{description}
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{RASD_Images/SequenceDiagrams/2.jpg}
     \caption{\textit{Sequence diagram 2 - User sends pictures on mobile phone to notify a parking violation}}
 \end{figure}
 
-\newpage
 \subsection{R3: Validation of reported violations}
 \begin{itemize}
     \item Whenever a violation is reported the system checks whether or not the license plate field has been filled
@@ -145,10 +144,10 @@
     \item \textbf{Scenario 3} \newline
         SafeStreets has received the report of Mario Rossi regarding a violation of double-row parking. To verify the violation, a notification is sent to $k$ users. The system receives the answers that the users gave to the validation request and makes the algebraic sum of approvals and rejections. The calculated sum is $m > v$, where $v$ is a threshold that guarantees a minimum number of approvals; as a consequence, the system validates the report and registers the violation.
 
-    \item \textbf{Use case: The system validates a reported violation}
+    \item \textbf{Use case}
         \begin{center}
             \begin{tabular}{|p{3cm}|p{7cm}|}
-                \multicolumn{2}{c}{\textbf{User sends pictures to notify violation}} \\
+                \multicolumn{2}{c}{\textbf{The system validates a reported violation}} \\
                 \hline
                 \textbf{Name} & Validation of violation  \\
                 \hline
@@ -189,7 +188,7 @@
         \end{center}
 \end{description}
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{RASD_Images/SequenceDiagrams/3.jpg}
     \caption{\textit{Sequence diagram 3 - The system validates a reported violation}}
@@ -212,7 +211,7 @@
         for every school in his list, he looks on the web interface of the application for the statistics about car accidents in all the five zones. He inserts the address of the school and the system responds with a map, showing the nearest unsafe areas if the school is in a safe area, or, if the school is in an unsafe 
         area, showing more detailed data about frequency of car accidents and violations. This operation is repeated five times.
 
-    \item \textbf{Use case: User looks for statistics for unsafe areas}
+    \item \textbf{Use case}
         \begin{center}
             \begin{tabular}{|p{3cm}|p{7cm}|}
                 \multicolumn{2}{c}{\textbf{User looks for statistics for unsafe areas}} \\
@@ -243,13 +242,12 @@
         \end{center}
 \end{description}
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{RASD_Images/SequenceDiagrams/4.jpg}
     \caption{\textit{Sequence diagram 4 - User looks for statistics for unsafe areas}}
 \end{figure}
 
-\newpage
 \subsection{R5: Allow authorities to see data about violations and who committed them}
 \begin{itemize}
     \item Authorities can access all data about violations that a standard user can access
@@ -260,7 +258,7 @@
     \item \label{scenario5} \textbf{Scenario 5} \newline
         A notification of a violation including a vehicle has just been made by a registered user and has been validated. The type of violation is "Stop in front of driveway" and the offender car, that has been identified with its license plate, was already present in the list SafeStreets uses to keep track of offenders. The system updates the number of infractions related to that car. An authority views the new infraction and generate a traffic ticket. The authority is also able to see the history of violations regarding the offender.
 
-    \item \textbf{Use case: Viewing of data about violations and offenders by authorities}
+    \item \textbf{Use case}
     \begin{center}
         \begin{tabular}{|p{3cm}|p{7cm}|}
             \multicolumn{2}{c}{\textbf{Viewing of data about violations and offenders by authorities}} \\
@@ -292,13 +290,12 @@
     \end{center}
 \end{description}
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{RASD_Images/SequenceDiagrams/5.jpg}
     \caption{\textit{Sequence diagram 5 - Viewing of data about violations and offenders by authorities}}
 \end{figure}
 
-\newpage
 \subsection{R6: Allow authorities to register with a special user profile}
 \begin{itemize}
     \item Authorities must first register as citizens
@@ -309,7 +306,7 @@
     \item \textbf{Scenario 6} \newline
         Paolo Brambilla is a policeman, he wants to register to SafeStreets and using his tablet he accesses the web interface, inserts his data for standard user registration \hyperref[scenario1]{(see Scenario 1)} and becomes a registered user. He wants to upgrade his profile to be enabled, as a member of the local police, to access the most advanced functions of the system. He must click on the button "Upgrade profile", then he is asked to write his police ID badge number and his current district, then he clicks on the button "Upgrade to authority". The system verifies his ID badge number, sending it to the municipality that confirms or discards the identification of the policeman, checking his personal data, his area of competence and his badge. If the authority identity is validated, the profile is correctly upgraded. An confirmation email of the upgrade is sent to Paolo Brambilla's address. Now he can log to SafeStreets as an authority and has access to all the advanced functions of the system. If the authority identity is rejected, the system doesn't change anything in the user profile.
 
-    \item \textbf{Use case: User registers as an authority}
+    \item \textbf{Use case}
     \begin{center}
         \begin{tabular}{|p{3cm}|p{7cm}|}
             \multicolumn{2}{c}{\textbf{Registration of an authority}} \\
@@ -347,13 +344,12 @@
     \end{center}
 \end{description}
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{RASD_Images/SequenceDiagrams/6.jpg}
     \caption{\textit{Sequence diagram 6 - User registers as an authority}}
 \end{figure}
 
-\newpage
 \subsection{R7: Detection of unsafe areas and possible interventions}
 \begin{itemize}
   \item SafeStreets can cross information from different sources to identify potentially unsafe areas
@@ -368,7 +364,7 @@
         by SafeStreets users, those with car accidents and damages provided by the municipality, and those areas that have both these 
         information. On a regular basis, SafeStreets sends an email to the municipalities that can intervene on unsafe areas suggesting possible solutions identified using a special algorithm.
         
-    \item \textbf{Use case: The system provides unsafe areas identification}
+    \item \textbf{Use case}
     \begin{center}
         \begin{tabular}{|p{3cm}|p{7cm}|}
             \multicolumn{2}{c}{\textbf{Unsafe areas identification}} \\
@@ -397,13 +393,12 @@
     \end{center}
 \end{description}
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{RASD_Images/SequenceDiagrams/7.jpg}
     \caption{\textit{Sequence diagram 7 - The system provides unsafe areas identification}}
 \end{figure}
 
-\newpage
 \subsection{R8: Traffic ticket generation from validated reports}
 \begin{itemize}
   \item SafeStreets can generate tickets for traffic violations reported from registered users
@@ -415,7 +410,7 @@
         are distinct. Both the web interface and the mobile application can create new reports, only system administrators have full access to
         the database and thus it's their responsibility to guarantee that other actors don't alter the data. These conditions are necessary to allow SafeStreets tickets to have legal validity, thus enabling local authorities to automatically generate traffic ticket from the client application.
  
-    \item \textbf{Use case: An authority provides municipality of information and traffic ticket is generated}
+    \item \textbf{Use case}
     \begin{center}
         \begin{tabular}{|p{3cm}|p{7cm}|}
             \multicolumn{2}{c}{\textbf{A traffic ticket is generated}} \\
@@ -446,13 +441,12 @@
     \end{center}
 \end{description}
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{RASD_Images/SequenceDiagrams/8.jpg}
     \caption{\textit{Sequence diagram 8 - An authority provides municipality of information and traffic ticket is generated}}
 \end{figure}
 
-\newpage
 \subsection{Traceability Matrix}
 \begin{center}
     \begin{tabular}{c|c|l|l}
