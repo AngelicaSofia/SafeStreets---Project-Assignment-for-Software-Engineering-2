@@ -1,7 +1,21 @@
-\documentclass{report}
+\documentclass[a4paper]{report}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{listings}
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{float}
+
 
 % Package for pdf metadata
 \usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{titlepic}
+
+\usepackage[nottoc,notlof,notlot]{tocbibind} 
+\renewcommand\bibname{References}
+
 \hypersetup{
   pdftitle={DD},
   pdfauthor={Carlo Dell'Acqua, Adriana Ferrari, Angelica Sofia Valeriani},                     % author
@@ -15,10 +29,16 @@
   linktoc=page
 }
 
-\begin{document}
+\setcounter{secnumdepth}{3}
   % Cover
+
+\begin{titlepage}
+  \titlepic{\includegraphics[width=9cm]{DD_Images/logo.jpg}}
   \title{DD}
-  \author{Carlo Dell'Acqua, Adriana Ferrari, Angelica Valeriani}
+  \author{Carlo Dell'Acqua, Adriana Ferrari, Angelica Sofia Valeriani}
+\end{titlepage}
+
+\begin{document}
   \maketitle
 
   % Table of contents
