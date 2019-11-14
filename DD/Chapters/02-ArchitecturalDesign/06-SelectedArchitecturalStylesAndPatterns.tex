@@ -1,0 +1,33 @@
+SafeStreets will be built using a RESTful architecture. The web application and the mobile application will interact with the server using
+HTTP endpoints communicating using the JSON format.
+The main advantages of these choices are:
+\begin{itemize}
+  \item separation of the presentation layer from the application logic at a physical level: delegating
+  all the presentation logic to the client device will reduce the load of the server (no Server Side Rendering)
+  \item the JSON format will ensure the compatibility with all the platforms: being a standard communication format
+  guarantees the existence of a variety of libraries for all client platforms
+\end{itemize}
+
+The server application will be structured using the concept of middlewares.
+Middlewares are chainable components in the HTTP Request-Response flow and guarantee a good
+level of isolation among the different functionalities they offer, thus providing a simple pattern that
+encourages the employment of the Single Responsibility Principle.
+
+The middlewares we'll be using are:
+\begin{itemize}
+  \item CompressionMiddleware: it reduces the overall bandwidth needed by the server using a compression algorithm that decreases the size of the data sent (and received) by (and to) the server.
+  This middleware will be provided by the Reverse Proxy
+  \item AuthenticationMiddleware: it has the purpose of filtering requests, rejecting those which lack the permissions to access a specific resource
+  \item LoggingMiddleware: it logs the server traffic. This can be useful for debugging purposes and statistical analysis on further improvement of the infrastructure
+\end{itemize}
+
+The SafeStreets APIs will be developed using \textbf{express}, a lightweight library for Node.js that provides an easy
+programming interface for building middlewares and REST applications.
+The main language we'll be using is TypeScript due to its statically-typed nature. Moreover, being it a superset of JavaScript,
+it guarantees the compatibility with a large amount of web-oriented libraries and first-class Functions.
+Functional programming fits well with the stateless concept of a RESTful architecture, we'll be following a Functional style for our code,
+trying to avoid state whenever possible to reduce the possibility of error caused by mutability.
+
+The database system we'll be using is PostgreSQL, a common RDBMS, on which we'll store all kind of data except for multimedia content. This content,
+being non-relational and prevalent on our platform will be stored on a Cloud Storage solution (such as Google Cloud Storage) and linked to the RDBMS
+using its own identifiers.
