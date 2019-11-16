@@ -1,1 +1,10 @@
 \section{Other Design Decisions}
+\subsection{Algorithm for generating possible interventions}
+This algorithm is used to automatically generate possible interventions in response to certified violations, in order to 
+prevent them. It is an algorithm that uses the principles of Machine Learning and started from an input of a $b$ GB of text, 
+extracted from $n$ (order of thousands) web pages. It has also in input some parameters; particularly, it is focused on 
+keywords. It takes as the main keywords the ones taken from the category of certified violation, provided by the user, 
+then as auxiliary keywords, to be used if the collected material in the first step is not sufficient, the ones taken from 
+the brief description inserted by the user in the report. Thanks to this information a simple and middle-length text 
+suggesting possible interventions is produced with a procedure similar to algorithm GPT-2.
+
