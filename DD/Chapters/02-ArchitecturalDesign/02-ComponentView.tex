@@ -11,6 +11,9 @@ concurrent transactions and the ACID properties. As the application doesn’t re
 one provided by the relational data structure, the database has to be a RDBMS. The data layer will be exclusively 
 accessible through the Application Server via a dedicated interface. Besides, the Application Server must provide a 
 persistent unit to handle dynamic behavior of all the contained application data. 
+\newline The system also provides an external Cloud Storage in order to memorize the pictures sent by the users that 
+notify a violation. There is a dedicated service for this task as the amount of pictures that can be collected can be 
+very huge. After saving pictures in the Cloud Storage, there is a unique identifier for every memorized data.
 \newline Sensible data, fundamentally passwords, have to be hashed properly and salted before being stored. 
 The users will be granted access only after verification of correct and valid credentials.
 \newline Pertinence and integrity are granted, as well as isolation in concurrent transactions and atomicity, all ACID properties 
