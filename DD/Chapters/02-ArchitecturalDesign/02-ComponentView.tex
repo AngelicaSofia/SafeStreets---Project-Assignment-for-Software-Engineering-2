@@ -31,33 +31,44 @@ granted to have access to the database.
 to already existing external infrastructures. 
 \newline The main logic must include:
 \begin{itemize}
-  \item \textbf{UserModule}: This module will manage all the logic involved with the user account, management, and operations 
-  like registration, login, and also profile customization and update, as allowed to authority, that can register 
-  with special permission after they are authorized. Furthermore, the module will deal with the generation and provision 
-  of user credentials, connected to the optional two-factors authentication, that can be requested by the client.
-  \item \textbf{MapModule}: This module contains the logic used to locate violations and users; besides it deals with the 
+  \item \textbf{UserModule}: This module will manage, through AccountModule component, all the logic involved with 
+  the user account, management, and operations like registration, login, and also profile customization and update, as 
+  allowed to authority, that can register with special permission after they are authorized. Furthermore, the module 
+  will deal with the generation and provision of user credentials, connected to the optional two-factors authentication, 
+  that can be requested by the client. Besides, this module has to manage user accounts; it has to store all the data 
+  related to user accounts in the RDBMS, all the data related to users and to show stored data in case of personal data requests.
+  \item \textbf{StatisticsModule}: This module contains the logic used to locate violations and users; besides it deals with the 
   definition of the Unsafe Area boundaries.This module must provide useful data to the logic that is at service of the unit 
   that deals with  Authorities, since it can need localization information, in order to perform its task.
   \item \textbf{AuthorityModule}: This module contains all the logic that grant access to an authority to its specific functionality: 
   generation of traffic tickets and access to personal information and sensible data regarding offenders. Besides, 
   the module is also devoted to the fundamental task of keeping the chain of custody of a certain notification with 
   license plate, in order to preserve the integrity of information.
-  \item \textbf{ReportModule}: This module provides the logic behind the report of violations, with particular 
+  \item \textbf{ReportModule}: This module provides the function of collecting all the reports, it doesn't depend on the validity
+  of notification itself. The module is used principally as a general collector, that provides the logic to collect reports that are
+  provided by the user in a correct form. The reports are then sent to the ReportValidationModule in order to validate or reject them. 
+  \item \textbf{ReportValidationModule}: This module provides the logic behind the report of violations, with particular 
   focus on timing restrictions and on the confirmation of the report by other users. This module is also in charge 
-  to detect multiple reports of the same violation.
+  to detect multiple reports of the same violation. This module is useful to filter the reports, validating or rejecting them.
   \item \textbf{LicensePlateModule}: This module includes the logic needed by other components to set the license plate 
   status. It must also be useful as an interface with the external communication with the municipality, as it forwards a 
   certified license plate, after it has been validated under the supervision of an authority.
-  \item \textbf{NotificationModule}: This module is used as a gateway from all the modules that need to interact by 
+  %\item \textbf{SuggestionsModule}: This module implements the algorithm to automatically generate suggestions in respond to the
+  %violations notified and validated by SafeStreets. It uses the validated report, and provides suggestion to be sent to Municipality,
+  %that is an external agent to the system.
+  \item \textbf{PushNotification}: This module is used as a gateway from all the modules that need to interact by 
   sending an email to the clients. Its task is managing the logic behind the email notification services.
+  \item \textbf{APIrest}: This module is used as an interface for the client to communicate with server and to send
+  general requests. This module holds the general request of the client providing him the correct service he asked for.
 \end{itemize}
 
-\subsection{Mobile Client Application}
-The mobile client must be designed in such a way to make the communication with the Application Server easy and not dependent 
+\subsection{Client Application}
+The client must be designed in such a way to make the communication with the Application Server easy and not dependent 
 on the implementation on both sides of communication. In order to reach this goal, adequate APIs must be defined and used 
 to manage the interaction between the two components. The mobile application UI must be designed following the procedures 
-provided by Android and iOS systems.
-\newline The mobile application must provide a software module that manages GPS connection of the device and helps with 
+provided by Android and iOS systems. The provided interface is suitable either for Mobile Client Application or Web Client Application,
+as the client can connect to SafeStreets in both ways.
+\newline The client application must provide a software module that manages GPS connection of the device and helps with 
 the identification of location. This software will provide collected data to the Application Server to be processed. This 
 is useful, but not fundamental for the application as the user is able to use SafeStreets also in absence of GPS 
 functioning; in this case the location is manually inserted by the user.
