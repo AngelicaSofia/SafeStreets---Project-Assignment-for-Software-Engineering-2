@@ -4,6 +4,12 @@ needed sub-parts, as well as how the sub-elements interface one with another wit
 in this section it will be specified which of the considered sub-elements are in charge of interfacing with the other 
 components of the system.
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{DD_Images/ComponentView/componentView.jpg}
+  \caption{\textit{Component View of the application}}
+\end{figure}
+
 \subsection{Database}
 The database layer must include a DBMS component, in order to manage operations like insertion, update or deletion as 
 well as logging of transactions on data inside the storage memory. The DBMS must guarantee the correct functioning of 
@@ -18,6 +24,12 @@ very huge. After saving pictures in the Cloud Storage, there is a unique identif
 The users will be granted access only after verification of correct and valid credentials.
 \newline Pertinence and integrity are granted, as well as isolation in concurrent transactions and atomicity, all ACID properties 
 are satisfied.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{DD_Images/ComponentView/componentViewServerZoom.jpg}
+  \caption{\textit{Component View of the application - Focus on Application Server}}
+\end{figure}
 
 \subsection{Application Server}
 This layer must handle a great part of the application logic, together with the connections with the data layer and the 
