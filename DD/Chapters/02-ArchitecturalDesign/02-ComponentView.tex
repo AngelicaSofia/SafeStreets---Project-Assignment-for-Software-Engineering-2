@@ -27,6 +27,23 @@ are satisfied.
 
 \begin{figure}[H]
   \centering
+  \includegraphics[width=\textwidth]{DD_Images/RelationalModel/RelationalModel.jpg}
+  \caption{\textit{Relational Model of RDBMS}}
+\end{figure}
+
+\subsubsection{Notes about Relational Model}
+The diagram doesn't include fields that are obtainable with specific queries. An example is the score of a pull, that can be obtained 
+with a view, or a materialized view (through a selection on the sum). Another attribute, $validation_result$, in Report entity, is 
+inserted in the table, even if it could be computed with an equality, because it is not granted that threshold value will be constant 
+in time. In fact, this value will depend on the number of active users that is monthly updated, or on other elements that make it 
+variable.
+\begin{itemize}
+  \item \textit{"AttributeName?"} indicates an attribute that can assume NULL value. Most of the attributes are mandatory fields, only a few 
+  can be nullable 
+\end{itemize}
+
+\begin{figure}[H]
+  \centering
   \includegraphics[width=\textwidth]{DD_Images/ComponentView/componentViewServerZoom.jpg}
   \caption{\textit{Component View of the application - Focus on Application Server}}
 \end{figure}
