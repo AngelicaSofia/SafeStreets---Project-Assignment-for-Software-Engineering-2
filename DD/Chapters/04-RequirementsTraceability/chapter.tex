@@ -1,0 +1,51 @@
+\section{Requirements Traceability}
+
+In this section we are going to explain how the different components and modules we are going to implement in SafeStreets
+will play their part in reaching our goals.
+For this reason, here is again reported the Traceability Matrix from the RASD to better clarify which requirements and assumptions are associated to each goal. For a more in depth analysis of the relationship between goals and requirements, please reference SafeStreets RASD.
+
+\begin{center}
+  \begin{tabular}{c|c|l|l}
+      \hline
+      \textbf{Ref} & \textbf{Goals} & \textbf{Requirement} & \textbf{Domain assumptions} \\
+      \hline
+      1 & G1 & R1, R2 & D1, D5 \\
+      \hline
+      2 & G2 & R4, R7 & D8, D10 \\
+      \hline
+      3 & G3 & R5, R8 & D7, D9 \\
+      \hline
+      4 & G4 & R3 & D9, D11 \\
+      \hline
+      5 & G5 & R1, R6 & D2, D3, D6 \\
+      \hline
+      6 & G6 & R5, R8 & D1, D2 \\
+      \hline
+      7 & G7 & R1, R3, R5, R6, R8 & D1, D4, D5, D9, D11  \\
+      \hline
+  \end{tabular}
+\end{center}
+
+\subsection{[G1] - Allowing citizens to report violations}
+The ReportModule will expose, thanks to our REST APIs, all the necessary functionalities to create a new report, and will communicate with the RDBMS and the Cloud Storage to store all the received data.
+Clearly in order to be able to send reports, users must be first registered and logged in; these functionalities are included in the UserModule, in specialized submodules that take care of Registration and Login.
+\subsection{[G2] - Showing statistical data and offering suggestions to make the worst areas safer}
+The StatisticsModule will contain all the logic related to analyzing previous data and computing which areas are more dangerous. It will handle the communication with external APIs and, through our APIs, will allow the client application to get the necessary data to display maps and various statistical charts.
+The SuggestionsModule, on the other hand, thanks to AI tools, will be able to find suggestions that will be submitted to the municipalities that need most help in managing their traffic situation and decrease the number of accidents and violations.
+\subsection{[G3] - Showing reports to Authorities and allow ticket generation}
+First of all, the AuthorityModule will take care of verifying the profiles of authorities and give them access to more functionalities than standard users. 
+One of these functionalities is the generation of traffic tickets; therefore there is going to be a very tight connection between this module and the ReportModule.
+\subsection{[G4] - Reliable report validation}
+The ReportValidationModule, once a Report is submitted, will take care of its validation.
+Thanks to the Push Notifications, some users will be notified of the new report and will be asked to submit a form in order to validate it or reject it.
+Then, the ReportValidationModule will appropriately mark the report on the RDBMS so that, if it's valid, it can be sent to authorities.
+A report can't be modified after it has been sent, so it's important that no module will expose APIs that offer this functionality, not even to authorities.
+\subsection{[G5] - Secure authentication methods}
+Two factor authentication will be managed by the UserModule: if a user enables this option, after the standard login with email and password, in order to have access to their profile the user will also have to confirm their identity through other means, like an OTP sent by SMS or email or their fingerprint if their device allows it.
+The client application may rely on some external services, like GoogleAuthenticator, in order to offer some types of two factor authentication.
+\subsection{[G6] - Securely store data and only show it to authorized people}
+User data is stored on a RDBMS, server side many modules will need to interact with it, but this interaction will only be allowed if the user is logged in with proper credentials.
+As explained earlier, the UserModule will take care of the login itself. 
+APIs that are only available to certain users will be inserted into routes that check if the user has the necessary permissions.
+\subsection{[G7] - Reports have legal validity}
+The UserModule will allow only people over 18 to register to SafeStreets; besides, every SafeStreets user can be linked to one person in real life as their ID number is stored in the database. Legal validity of our reports will also be ensured by the AuthorityModule and ReportValidationModule, as explained in the previous points.
