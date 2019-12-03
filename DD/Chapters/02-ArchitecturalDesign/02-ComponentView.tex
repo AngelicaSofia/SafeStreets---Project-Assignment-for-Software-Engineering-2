@@ -6,7 +6,7 @@ components of the system.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{DD_Images/ComponentView/componentView.jpg}
+  \includegraphics[origin=c,width=\textwidth]{DD_Images/ComponentView/componentView.jpg}
   \caption{\textit{Component View of the application}}
 \end{figure}
 
@@ -18,23 +18,23 @@ one provided by the relational data structure, the database has to be a RDBMS. T
 accessible through the Application Server via a dedicated interface. Besides, the Application Server must provide a 
 persistent unit to handle dynamic behavior of all the contained application data. 
 \newline The system also provides an external Cloud Storage in order to memorize the pictures sent by the users that 
-notify a violation. There is a dedicated service for this task as the amount of pictures that can be collected can be 
-very huge. After saving pictures in the Cloud Storage, there is a unique identifier for every memorized data.
+notify a violation. There is a dedicated service for this task because the amount of pictures that the application will
+store will grow very fast. After saving pictures in the Cloud Storage, there is a unique identifier for every memorized data.
 \newline Sensible data, fundamentally passwords, have to be hashed properly and salted before being stored. 
 The users will be granted access only after verification of correct and valid credentials.
-\newline Pertinence and integrity are granted, as well as isolation in concurrent transactions and atomicity, all ACID properties 
+\newline Persistence and integrity are granted, as well as isolation in concurrent transactions and atomicity, all ACID properties 
 are satisfied.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{DD_Images/RelationalModel/RelationalModel.jpg}
+  \includegraphics[origin=c,width=\textwidth]{DD_Images/RelationalModel/RelationalModel.jpg}
   \caption{\textit{Relational Model of RDBMS}}
 \end{figure}
 
 \subsubsection{Notes about Relational Model}
 The diagram doesn't include fields that are obtainable with specific queries. An example is the score of a pull, that can be obtained 
-with a view, or a materialized view (through a selection on the sum). Another attribute, $validation_result$, in Report entity, is 
-inserted in the table, even if it could be computed with an equality, because it is not granted that threshold value will be constant 
+with a view, or a materialized view (through a selection on the sum). Another attribute, $validation\_result$, in Report entity, is 
+inserted in the table, even if it could be computed with an inequality, because it is not granted that the threshold value will be constant 
 in time. In fact, this value will depend on the number of active users that is monthly updated, or on other elements that make it 
 variable.
 \begin{itemize}
@@ -42,19 +42,13 @@ variable.
   can be nullable 
 \end{itemize}
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\textwidth]{DD_Images/ComponentView/componentViewServerZoom.jpg}
-  \caption{\textit{Component View of the application - Focus on Application Server}}
-\end{figure}
-
 \subsection{Application Server}
 This layer must handle a great part of the application logic, together with the connections with the data layer and the 
 multiple ways of accessing the application from different clients. The main feature of the Application Server is the set 
 of specific modules of logic, that describe rules regarding violations, their identification, and the following procedures. 
 Work-flows for each of the functionalities provided by the application itself are also provided in this component. 
 \newline The interface with the data layer must be handled by a dedicated persistent unit, that will be dedicated also to 
-the dynamic data access and management, besides the object-relation mapping. In this way the only Application Server is 
+the dynamic data access and management, besides the object-relation mapping. In this way only the Application Server is 
 granted to have access to the database.
 \newline The Application Server must also provide a way to communicate with external systems, by adapting the application 
 to already existing external infrastructures. 
@@ -82,18 +76,24 @@ to already existing external infrastructures.
   \item \textbf{LicensePlateModule}: This module includes the logic needed by other components to set the license plate 
   status. It must also be useful as an interface with the external communication with the municipality, as it forwards a 
   certified license plate, after it has been validated under the supervision of an authority.
-  \item \textbf{SuggestionsModule}: This module implements the algorithm to automatically generate suggestions in respond to the
+  \item \textbf{SuggestionsModule}: This module implements the algorithm to automatically generate suggestions in response to the
   violations notified and validated by SafeStreets. It uses the validated report, and provides suggestion to be sent to Municipality,
-  hat is an external agent to the system.
+  that is an external agent to the system.
   \item \textbf{PushNotification}: This module is used as a gateway from all the modules that need to interact by 
-  sending an email to the clients. Its task is managing the logic behind the email notification services.
+  sending an email or a push notification to the clients. Its task is managing the logic behind the email and push notification services.
   \item \textbf{APIrest}: This module is used as an interface for the client to communicate with server and to send
   general requests. This module holds the general request of the client providing him the correct service he asked for.
 \end{itemize}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{DD_Images/ComponentView/componentViewUserModuleZoom.jpg}
+  \includegraphics[origin=c,width=\textwidth]{DD_Images/ComponentView/componentViewServerZoom.jpg}
+  \caption{\textit{Component View of the application - Focus on Application Server}}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[origin=c,width=\textwidth]{DD_Images/ComponentView/componentViewUserModuleZoom.jpg}
   \caption{\textit{Component View of the application - Focus on UserModule of Application Server}}
 \end{figure}
 
