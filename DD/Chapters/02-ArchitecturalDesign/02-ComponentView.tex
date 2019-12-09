@@ -1,6 +1,6 @@
 \section{Component View}
 In this section, the individual components will be presented in terms of their functionalities, their role and the 
-needed sub-parts, as well as how the sub-elements interface one with another within the overlaying component. Moreover, 
+needed sub-parts, as well as how the sub-elements interface with one another within the overlaying component. Moreover, 
 in this section it will be specified which of the considered sub-elements are in charge of interfacing with the other 
 components of the system.
 
@@ -11,8 +11,8 @@ components of the system.
 \end{figure}
 
 \subsection{Database}
-The database layer must include a DBMS component, in order to manage operations like insertion, update or deletion as 
-well as logging of transactions on data inside the storage memory. The DBMS must guarantee the correct functioning of 
+The database layer must include a DBMS component, in order to manage operations like selection, insertion, update or deletion.
+The DBMS must guarantee the correct functioning of 
 concurrent transactions and the ACID properties. As the application doesn’t require a more complex structure than the 
 one provided by the relational data structure, the database has to be a RDBMS. The data layer will be exclusively 
 accessible through the Application Server via a dedicated interface. Besides, the Application Server must provide a 
@@ -32,8 +32,8 @@ are satisfied.
 \end{figure}
 
 \subsubsection{Notes about Relational Model}
-The diagram doesn't include fields that are obtainable with specific queries. An example is the score of a pull, that can be obtained 
-with a view, or a materialized view (through a selection on the sum). Another attribute, $validation\_result$, in Report entity, is 
+The diagram doesn't include fields that are obtainable with specific queries. An example is the score of a poll, that can be obtained 
+with a view, or a materialized view. Another attribute, $validation\_result$, in Report entity, is 
 inserted in the table, even if it could be computed with an inequality, because it is not granted that the threshold value will be constant 
 in time. In fact, this value will depend on the number of active users that is monthly updated, or on other elements that make it 
 variable.
@@ -72,7 +72,7 @@ to already existing external infrastructures.
   provided by the user in a correct form. The reports are then sent to the ReportValidationModule in order to validate or reject them. 
   \item \textbf{ReportValidationModule}: This module provides the logic behind the report of violations, with particular 
   focus on timing restrictions and on the confirmation of the report by other users. This module is also in charge 
-  to detect multiple reports of the same violation. This module is useful to filter the reports, validating or rejecting them.
+  of detecting multiple reports of the same violation. This module is useful to filter the reports, validating or rejecting them.
   \item \textbf{LicensePlateModule}: This module includes the logic needed by other components to set the license plate 
   status. It must also be useful as an interface with the external communication with the municipality, as it forwards a 
   certified license plate, after it has been validated under the supervision of an authority.
