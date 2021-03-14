@@ -24,3 +24,6 @@ The Design document (DD) must contain a functional description of the system, an
 The RASD can be found in the RASD folder. This folder contains a latex folder that has the source files of the RASD.
 The DD can be found in the DD folder. This folder contains a latex folder that has the source files of the DD.
 DeliveryFolder contains the final version of each document.
+
+###### Evaluation
+The project has been evaluated with 29/30. Professor of the course: Matteo Giovanni Rossi and Elisabetta Di Nitto
